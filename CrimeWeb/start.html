@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<html>
+<title>admini_index</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+    .w3-sidebar a {font-family: "Roboto", sans-serif}
+    body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
+    .w3-margin-wh {
+        margin-bottom: 16px !important;
+        margin-top: -120px;
+    }
+
+</style>
+<style type="text/css">
+    <!--
+    A { text-decoration: none}
+    -->
+</style>
+<body class="w3-content" style="max-width:1200px">
+
+<!--<nav class="w3-sidebar w3-bar-block w3-white w3-collapse w3-top" style="z-index:3;width:250px" id="mySidebar">
+    <div class="w3-container w3-display-container w3-padding-16">
+        <i onclick="w3_close()" class="fa fa-remove w3-hide-large w3-button w3-display-topright"></i>
+        <h3 class="w3-wide"><b><font color="rgb(4, 123, 213)">Resource profile</b></h3></font>
+    </div>
+    <div class="w3-padding-64 w3-large w3-text-grey" style="font-weight:bold">
+        <a class="w3-bar-item w3-button"><b>Profile</b></a>
+        <a class="w3-bar-item w3-button"><b>search</b></a>
+        <a onclick="myAccFunc()" href="javascript:void(0)" class="w3-button w3-block w3-white w3-left-align" id="myBtn">
+            Analyze <i class="fa fa-caret-down"></i>
+        </a>
+        <div id="demoAcc" class="w3-bar-block w3-hide w3-padding-large w3-medium">
+            <a class="w3-bar-item w3-button">Trend</a>
+            <a class="w3-bar-item w3-button">Compare</a>
+        </div>
+        <a class="w3-bar-item w3-button"><b>User Management</b></a>
+        <a class="w3-bar-item w3-button"><b>Resource Management</b></a>
+        <a class="w3-bar-item w3-button"><b>Report Management</b></a>
+    </div>
+
+    <a href="#footer" class="w3-bar-item w3-button w3-padding">Contact</a>
+    <a href="javascript:void(0)" class="w3-bar-item w3-button w3-padding" onclick="document.getElementById('newsletter').style.display='block'">Newsletter</a>
+    <a href="#footer"  class="w3-bar-item w3-button w3-padding">Subscribe</a>
+</nav>-->
+
+<div class="w3-main" style="margin-left:100px">
+
+
+    <header class="w3-container w3-xlarge">
+        <p class="w3-left"></p>
+        <p class="w3-right">
+        <button onclick="document.getElementById('id02').style.display='block'" class="w3-button w3-block w3-black">Register</button> 
+           <!-- <button type="button" class="w3-button w3-black w3-margin-bottom">Login</button>-->
+        <div class="w3-container">
+
+            <!--<onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-green w3-large">Login</button>-->
+            <button onclick="document.getElementById('id01').style.display='block'" type="button" class="w3-button w3-black w3-margin-bottom w3-margin-wh">Login</button>
+            <div id="id01" class="w3-modal">
+                <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px">
+
+                    <div class="w3-center"><br>
+                        <span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-xlarge w3-transparent w3-display-topright" title="Close Modal">×</span>
+                        <img src="image/people.jpg" alt="Avatar" style="width:30%" class="w3-circle w3-margin-top">
+                    </div>
+
+                    <form class="w3-container" action="login1.php" method="post"> <!--//修改login1.php-->
+                        <div class="w3-section">
+                            <label><b>Email</b></label>
+                            <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Enter email" name="email" required>
+                            <label><b>Password</b></label>
+                            <input class="w3-input w3-border" type="text" placeholder="Enter Password" name="password" required>
+                            <button class="w3-button w3-block w3-green w3-section w3-padding" type="submit">Login</button>
+                            <input class="w3-check w3-margin-top" type="checkbox" checked="checked"> Remember me
+                        </div>
+                    </form>
+
+                    <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
+                        <button onclick="document.getElementById('id01').style.display='none'" type="button" class="w3-button w3-red">Cancel</button>
+                    </div>
+
+                </div>
+            </div>
+			
+			<div id="id02" class="w3-modal">
+                <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px">
+
+                    <div class="w3-center"><br>
+                        <span onclick="document.getElementById('id02').style.display='none'" class="w3-button w3-xlarge w3-transparent w3-display-topright" title="Close Modal">×</span>
+                        <img src="image/people.jpg" alt="Avatar" style="width:30%" class="w3-circle w3-margin-top">
+                    </div>
+
+                    <form class="w3-container" action="register.php" method="post"> <!--//修改login1.php-->
+                        <div class="w3-section">
+                            <label><b>Email</b></label>
+                            <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Enter email" name="email" required>
+                            <label><b>Password</b></label>
+                            <input class="w3-input w3-border" type="text" placeholder="Enter Password" name="password" required>
+							<label><b>Username</b></label>
+                            <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Enter username" name="username" required>
+                            <label><b>Gender</b></label>
+                            <input class="w3-input w3-border" type="text" placeholder="Enter gender" name="gender">
+							<label><b>Birthday</b></label>
+                            <input class="w3-input w3-border" type="date" placeholder="Enter birthday" name="birthday">
+							<label><b>Priviledge</b></label>
+                            <input class="w3-input w3-border" type="number" placeholder="Enter priviledge" name="priviledge">
+							
+                            <button class="w3-button w3-block w3-green w3-section w3-padding" type="submit">register</button>
+                            <input class="w3-check w3-margin-top" type="checkbox" checked="checked"> Remember me
+                        </div>
+                    </form>
+
+                    <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
+                        <button onclick="document.getElementById('id02').style.display='none'" type="button" class="w3-button w3-red">Cancel</button>
+                    </div>
+
+                </div>
+            </div>
+			
+        </div>
+        </p>
+	  </div>
+    </header>
+
+
+    <div class="w3-display-container w3-container">
+        <img src="image/Usa_map.png"  alt="phone" style="width:100%"> 
+        <div class="w3-display-topleft w3-text-white" style="padding:10px 20px">
+        </div>
+    </div>
+
+    <div class="w3-container w3-text-grey" id="phone">
+    </div>
+
+
+  <div class="w3-container w3-black w3-padding-32">
+        <h1>Subscribe</h1>
+        <p>To get special offers and latest update:</p>
+        <p><input class="w3-input w3-border" type="text" placeholder="Enter e-mail" style="width:100%"></p>
+     <!--     <button type="button" class="w3-button w3-red w3-margin-bottom">Subscribe</button>-->
+    </div>
+
+
+    <footer class="w3-padding-64 w3-light-grey w3-small w3-center" id="footer">
+        <div class="w3-row-padding">
+            <div class="w3-col s4">
+              <!--  <button type="submit" class="w3-button w3-red w3-margin-bottom"><a href="http://localhost/project/form.html" ><b>Contact me</b></button></a>
+               -->
+                </form>
+            </div>
+
+            <div class="w3-col s4">
+                <h4>About</h4>
+                <p><a href="#">About us</a></p>
+                <p><a href="#">Support</a></p>
+                <p><a href="#">Help</a></p>
+
+            </div>
+
+            <div class="w3-col s4 w3-justify">
+                <h4>COP 5725 DBMS</h4>
+                <p><i class="fa fa-fw fa-map-marker"></i> #Group 09</p>
+                <p><i class="fa fa-fw fa-envelope"></i> xiangrui.li@ufl.edu</p>
+                <p><i class="fa fa-fw fa-envelope"></i> h.wen@ufl.edu</p>
+                <p><i class="fa fa-fw fa-envelope"></i> haoranjia@ufl.edu</p>
+                <p><i class="fa fa-fw fa-envelope"></i> xiajingyi@ufl.edu</p>
+                <br>
+                <i class="fa fa-facebook-official w3-hover-opacity w3-large"></i>
+                <i class="fa fa-instagram w3-hover-opacity w3-large"></i>
+                <i class="fa fa-snapchat w3-hover-opacity w3-large"></i>
+                <i class="fa fa-twitter w3-hover-opacity w3-large"></i>
+            </div>
+        </div>
+    </footer>
+</div>
+
+
+
+<div id="newsletter" class="w3-modal">
+    <div class="w3-modal-content w3-animate-zoom" style="padding:32px">
+        <div class="w3-container w3-white w3-center">
+            <i onclick="document.getElementById('newsletter').style.display='none'" class="fa fa-remove w3-right w3-button w3-transparent w3-xxlarge"></i>
+            <h2 class="w3-wide">NEWSLETTER</h2>
+            <p>Join our mailing list to receive updates on new arrivals and special offers from #Mworld.</p>
+            <p><input class="w3-input w3-border" type="text" placeholder="Enter e-mail"></p>
+            <button type="button" class="w3-button w3-padding-large w3-red w3-margin-bottom" onclick="document.getElementById('newsletter').style.display='none'">Subscribe</button>
+
+        </div>
+    </div>
+</div>
+
+
+<script>
+    function myAccFunc() {
+        var x = document.getElementById("demoAcc");
+        if (x.className.indexOf("w3-show") == -1) {
+            x.className += " w3-show";
+        } else {
+            x.className = x.className.replace(" w3-show", "");
+        }
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<title>W3.CSS</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8">
+<script   src="https://code.jquery.com/jquery-3.2.1.js"   integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="   crossorigin="anonymous"></script>
+<link rel="stylesheet" href="w3.css">
+<body>
+
+<p><button onclick="submit1()" class="w3-btn w3-teal">Register</button></p>
+
+<script type="text/javascript">
+function submit1(){
+        $.ajax({
+
+            type:"post",
+
+            url:"test01.php",
+			
+			data:{"type":"aa","sector":"bb","year":"cc"},
+
+            dataType:"json",
+
+            success:function (data) {
+
+                $(data).each(
+
+                    function (i, values) {
+
+                        $("#list").append(
+
+                            "<tr><td>"+values.STATE1+"</td>"
+
+                            +"<td>"+values.MINVALUE+"</ta></td>"
+
+                            +"<td>"+values.STATE2+"</td>"
+
+                            +"<td>"+values.MAXVALUE+"</td></tr>"
+
+
+                        );
+
+ 
+
+                    }
+
+                );
+
+            },
+
+        })
+	}
+
+    </script>
+
+<table  id ="table1" class="w3-table w3-striped w3-bordered">
+
+                <thead>
+
+                <tr>
+
+                    <th>编号</th>
+
+                    <th>书名</th>
+
+                    <th>价格</th>
+
+                    <th>作者</th>
+
+
+                </tr>
+
+                </thead>
+
+                <tbody id="list"></tbody>
+
+</table>
+
+</body>
+</html> 

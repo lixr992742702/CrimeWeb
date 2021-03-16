@@ -1,0 +1,3594 @@
+<!DOCTYPE html>
+<html lang="en">
+<html>
+<title>User_index</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<script   src="https://code.jquery.com/jquery-3.2.1.js"   integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="   crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<style>
+    .w3-sidebar a {font-family: "Roboto", sans-serif}
+    body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
+</style>
+<body class="w3-content" style="max-width:1700px">
+
+<nav class="w3-sidebar w3-bar-block w3-white w3-collapse w3-top" style="z-index:3;width:250px" id="mySidebar">
+    <div class="w3-container w3-display-container w3-padding-16">
+        <i onclick="w3_close()" class="fa fa-remove w3-hide-large w3-button w3-display-topright"></i>
+        <h3 class="w3-wide"><b><font color="rgb(4, 123, 213)">Resource profile</b></h3></font>
+    </div>
+    <div class="w3-padding-64 w3-large w3-text-grey" style="font-weight:bold">
+        <a class="w3-bar-item w3-button"><b>Profile</b></a>
+        <a class="w3-bar-item w3-button" href="search.html"><b>search</b></a>
+        <a onclick="myAccFunc('demoAcc')" href="javascript:void(0)" class="w3-button w3-block w3-white w3-left-align" id="myBtn">
+            Analyze <i class="fa fa-caret-down"></i>
+        </a>
+        <div id="demoAcc" class="w3-bar-block w3-hide w3-padding-large w3-medium">
+		
+			<a onclick="myAccFunc('demoAcc1')" href="javascript:void(0)" class="w3-button w3-block w3-white w3-left-align" id="myBtn1">
+            Trend <i class="fa fa-caret-down"></i>
+            </a>
+			<div id="demoAcc1" class="w3-bar-block w3-hide w3-padding-large w3-medium">
+				<a class="w3-bar-item w3-button" onclick="openCity('reduction')">reduction</a>
+				<a class="w3-bar-item w3-button" onclick="openCity('prediction')">prediction</a>
+				<a class="w3-bar-item w3-button" onclick="openCity('difference')">difference</a>
+				<a class="w3-bar-item w3-button" onclick="openCity('zero')">zero</a>
+				<a class="w3-bar-item w3-button" onclick="openCity('usability')">usability</a>
+			</div>
+			
+			<a onclick="myAccFunc('demoAcc2')" href="javascript:void(0)" class="w3-button w3-block w3-white w3-left-align" id="myBtn2">
+            Compare <i class="fa fa-caret-down"></i>
+            </a>
+			<div id="demoAcc2" class="w3-bar-block w3-hide w3-padding-large w3-medium">
+				<a class="w3-bar-item w3-button" onclick="openCity('extremum')">extremum</a>
+				<a class="w3-bar-item w3-button" onclick="openCity('similarity')">similarity</a>
+				<a onclick="myAccFunc('demoAcc5')" href="javascript:void(0)" class="w3-button w3-block w3-white w3-left-align" id="myBtn5">
+                 balance <i class="fa fa-caret-down"></i>
+				</a>
+				<div id="demoAcc5" class="w3-bar-block w3-hide w3-padding-large w3-medium">
+					<a class="w3-bar-item w3-button" onclick="openCity('balance_state')">state</a>
+					<a class="w3-bar-item w3-button" onclick="openCity('balance_sector')">sector</a>
+				</div>
+			</div>
+			 
+            <a onclick="myAccFunc('demoAcc4')" href="javascript:void(0)" class="w3-button w3-block w3-white w3-left-align" id="myBtn4">
+            Research <i class="fa fa-caret-down"></i>
+            </a>
+			<div id="demoAcc4" class="w3-bar-block w3-hide w3-padding-large w3-medium">
+			
+				<a class="w3-bar-item w3-button" onclick="openCity('univerality')">univerality</a>
+				
+				
+				<a onclick="myAccFunc('demoAcc8')" href="javascript:void(0)" class="w3-button w3-block w3-white w3-left-align" id="myBtn5">
+                 general energy <i class="fa fa-caret-down"></i>
+				</a>
+				<div id="demoAcc8" class="w3-bar-block w3-hide w3-padding-large w3-medium">
+					<a class="w3-bar-item w3-button" onclick="openCity('general_state')">state</a>
+					<a class="w3-bar-item w3-button" onclick="openCity('general_sector')">sector</a>
+				</div>
+			
+				<a onclick="myAccFunc('demoAcc6')" href="javascript:void(0)" class="w3-button w3-block w3-white w3-left-align" id="myBtn5">
+                 average <i class="fa fa-caret-down"></i>
+				</a>
+				<div id="demoAcc6" class="w3-bar-block w3-hide w3-padding-large w3-medium">
+					<a class="w3-bar-item w3-button" onclick="openCity('average_state')">state</a>
+					<a class="w3-bar-item w3-button" onclick="openCity('average_sector')">sector</a>
+				</div>
+				
+				<a onclick="myAccFunc('demoAcc7')" href="javascript:void(0)" class="w3-button w3-block w3-white w3-left-align" id="myBtn5">
+                 total <i class="fa fa-caret-down"></i>
+				</a>
+				<div id="demoAcc7" class="w3-bar-block w3-hide w3-padding-large w3-medium">
+					<a class="w3-bar-item w3-button" onclick="openCity('total_state')">state</a>
+					<a class="w3-bar-item w3-button" onclick="openCity('total_sector')">sector</a>
+				</div>
+			</div>
+			
+        </div>
+		
+		
+        <a class="w3-bar-item w3-button" href="management.html"><b>Management</b></a>
+
+    </div>
+</nav>
+<header class="w3-container w3-xlarge">
+    <p class="w3-right">
+        <button type="button" class="w3-button w3-black w3-margin-bottom" style="display:none">Login</button>
+		<a href="start.html"">
+        <button type="button" class="w3-button w3-black w3-margin-bottom" >logout</button>
+		</a>
+    </p>
+</header>
+
+
+<!-- this is result table1 -->
+<div id="table1" class="w3-display-container w3-container" style="margin:0 auto;width:400px;height:100px;display:none">
+	<table  class="w3-table w3-striped w3-bordered">
+	
+				<thead id="head">
+				
+                </thead>
+
+                <tbody id="list"> </tbody>
+ 
+
+</table>
+</div>
+
+
+<div id="container" style="width: 550px; height: 400px; margin: 0 auto;display:none"></div>
+
+
+
+<!-- this is extremum form -->
+<div id="extremum" class="w3-display-container w3-container form" style="margin:0 auto;width:600px;height:300px">
+	<form class="w3-container w3-card-4">
+	
+	 
+	 <select id="extremum_type" class="w3-select w3-border" name="type">
+		<option value="" disabled selected>Type</option>
+		<option value="expenditure">EXPENDITURE</option>
+		<option value="price">PRICE</option>
+		<option value="production">PRODUCTION</option>
+		<option value="use">USE</option>
+	  </select>
+	  
+	 
+	  <!--<select id="extremum_sector" class="w3-select w3-border" name="sector">
+		<option value="" disabled selected>Sector</option>
+		<option value="commercial sector">COMMERCIAL SECTOR</option>
+		<option value="electric power sector">ELECTRIC POWER SECTOR</option>
+		<option value="industrial sector">INDUSTRIAL SECTOR</option>
+		<option value="residential sector">RESIDENTIAL SECTOR</option>
+		<option value="transportation sector">TRANSPORTATION SECTOR</option>
+	  </select>-->
+	  
+	  
+	  	<select id="extremum_from" class="w3-select w3-border" name="year1" onchange="change('extremum_from','extremum_to')">
+			<option value="" disabled selected>from</option>
+			<option value=1970>1970</option>
+			<option value=1971>1971</option>
+			<option value=1972>1972</option>
+			<option value=1973>1973</option>
+			<option value=1974>1974</option>
+			<option value=1975>1975</option>
+			<option value=1976>1976</option>
+			<option value=1977>1977</option>
+			<option value=1978>1978</option>
+			<option value=1979>1979</option>
+			<option value=1980>1980</option>
+			<option value=1981>1981</option>
+			<option value=1982>1982</option>
+			<option value=1983>1983</option>
+			<option value=1984>1984</option>
+			<option value=1985>1985</option>
+			<option value=1986>1986</option>
+			<option value=1987>1987</option>
+			<option value=1988>1988</option>
+			<option value=1989>1989</option>
+			<option value=1990>1990</option>
+			<option value=1991>1991</option>
+			<option value=1992>1992</option>
+			<option value=1993>1993</option>
+			<option value=1994>1994</option>
+			<option value=1995>1995</option>
+			<option value=1996>1996</option>
+			<option value=1997>1997</option>
+			<option value=1998>1998</option>
+			<option value=1999>1999</option>
+			<option value=2000>2000</option>
+			<option value=2001>2001</option>
+			<option value=2002>2002</option>
+			<option value=2003>2003</option>
+			<option value=2004>2004</option>
+			<option value=2005>2005</option>
+			<option value=2006>2006</option>
+			<option value=2007>2007</option>
+			<option value=2008>2008</option>
+			<option value=2009>2009</option>
+			<option value=2010>2010</option>
+			<option value=2011>2011</option>
+			<option value=2012>2012</option>
+			<option value=2013>2013</option>
+			<option value=2014>2014</option>
+			<option value=2015>2015</option>
+			<option value=2016>2016</option>
+			<option value=2017>2017</option>
+	 	</select>
+
+
+	 	<select id="extremum_to" class="w3-select w3-border" name="year2">
+			<option value="" disabled selected>to</option>
+			<option value=1970 disabled="true">1970</option>
+			<option value=1971 disabled="true">1971</option>
+			<option value=1972 disabled="true">1972</option>
+			<option value=1973 disabled="true">1973</option>
+			<option value=1974 disabled="true">1974</option>
+			<option value=1975 disabled="true">1975</option>
+			<option value=1976 disabled="true">1976</option>
+			<option value=1977 disabled="true">1977</option>
+			<option value=1978 disabled="true">1978</option>
+			<option value=1979 disabled="true">1979</option>
+			<option value=1980 disabled="true">1980</option>
+			<option value=1981 disabled="true">1981</option>
+			<option value=1982 disabled="true">1982</option>
+			<option value=1983 disabled="true">1983</option>
+			<option value=1984 disabled="true">1984</option>
+			<option value=1985 disabled="true">1985</option>
+			<option value=1986 disabled="true">1986</option>
+			<option value=1987 disabled="true">1987</option>
+			<option value=1988 disabled="true">1988</option>
+			<option value=1989 disabled="true">1989</option>
+			<option value=1990 disabled="true">1990</option>
+			<option value=1991 disabled="true">1991</option>
+			<option value=1992 disabled="true">1992</option>
+			<option value=1993 disabled="true">1993</option>
+			<option value=1994 disabled="true">1994</option>
+			<option value=1995 disabled="true" >1995</option>
+			<option value=1996 disabled="true">1996</option>
+			<option value=1997 disabled="true">1997</option>
+			<option value=1998 disabled="true">1998</option>
+			<option value=1999 disabled="true">1999</option>
+			<option value=2000 disabled="true">2000</option>
+			<option value=2001 disabled="true">2001</option>
+			<option value=2002 disabled="true">2002</option>
+			<option value=2003 disabled="true">2003</option>
+			<option value=2004 disabled="true">2004</option>
+			<option value=2005 disabled="true">2005</option>
+			<option value=2006 disabled="true">2006</option>
+			<option value=2007 disabled="true">2007</option>
+			<option value=2008 disabled="true">2008</option>
+			<option value=2009 disabled="true">2009</option>
+			<option value=2010 disabled="true">2010</option>
+			<option value=2011 disabled="true">2011</option>
+			<option value=2012 disabled="true">2012</option>
+			<option value=2013 disabled="true"d>2013</option>
+			<option value=2014 disabled="true">2014</option>
+			<option value=2015 disabled="true">2015</option>
+			<option value=2016 disabled="true">2016</option>
+			<option value=2017 disabled="true">2017</option>
+	 	</select>
+	  
+	  <p><button onclick="submit1()" type="button"  class="w3-btn w3-teal" >Analyze</button></p>
+	</form>
+</div>
+
+
+<!-- this is similarity form -->
+<div id="similarity" class="w3-display-container w3-container form" style="margin:0 auto;width:600px;height:300px;display:none">
+	<form class="w3-container w3-card-4">
+	  <select id="similarity_type" class="w3-select w3-border" name="option">
+		<option value="" disabled selected>Type</option>
+		<option value="expenditure">EXPENDITURE</option>
+		<option value="price">PRICE</option>
+		<option value="production">PRODUCTION</option>
+		<option value="use">USE</option>
+	  </select>
+	  
+	  <select id="similarity_state1" class="w3-select w3-border" name="option1" onchange="change_state('similarity_state1','similarity_state2')">
+		<option value="" disabled selected>State</option>
+		<option value="ND">ND</option>
+		<option value="NM">NM</option>
+		<option value="NC">NC</option>
+		<option value="UT">UT</option>
+		<option value="RI">RI</option>
+		<option value="WA">WA</option>
+		<option value="TN">TN</option>
+		<option value="FL ">FL</option>
+		<option value="CT">CT</option>
+		<option value="MD">MD</option>
+		<option value="MN">MN</option>
+		
+		<option value="MO">MO</option>
+		<option value="MT">MT</option>
+		<option value="OH">OH</option>
+		<option value="NV">NV</option>
+		<option value="AR">AR</option>
+		<option value="CO">CO</option>
+		<option value="AZ">AZ</option>
+		<option value="ID ">ID </option>
+		<option value="MS">MS</option>
+		<option value="PA">PA</option>
+		
+		<option value="MA">MA</option>
+		<option value="KY">KY</option>
+		<option value="MI">MI</option>
+		<option value="NH">NH</option>
+		<option value="VA">VA</option>
+		<option value="SC">SC</option>
+		<option value="AK">AK</option>
+		<option value="DE">DE </option>
+		<option value="DC">DC</option>
+		<option value="ME">ME</option>
+		<option value="NE">NE</option>
+		
+		<option value="SD">SD</option>
+		<option value="VT">VT</option>
+		<option value="AL">AL</option>
+		<option value="HI">HI</option>
+		<option value="IL">IL</option>
+		<option value="WY">WY</option>
+		<option value="OR">OR</option>
+		<option value="WV">WV</option>
+		<option value="TX">TX</option>
+		<option value="NY">NY</option>
+		<option value="KS">KS</option>
+		
+		<option value="IN">IN</option>
+		<option value="NJ">NJ</option>
+		<option value="WI">WI</option>
+		<option value="OK">OK</option>
+		<option value="CA">CA</option>
+		<option value="IA">IA</option>
+		<option value="GA">GA</option>
+		<option value="LA">LA</option>
+	  </select>
+	  
+	  <select id="similarity_state2" class="w3-select w3-border" name="option2">
+		<option value="" disabled selected>State</option>
+		<option value="ND">ND</option>
+		<option value="NM">NM</option>
+		<option value="NC">NC</option>
+		<option value="UT">UT</option>
+		<option value="RI">RI</option>
+		<option value="WA">WA</option>
+		<option value="TN">TN</option>
+		<option value="FL ">FL</option>
+		<option value="CT">CT</option>
+		<option value="MD">MD</option>
+		<option value="MN">MN</option>
+		
+		<option value="MO">MO</option>
+		<option value="MT">MT</option>
+		<option value="OH">OH</option>
+		<option value="NV">NV</option>
+		<option value="AR">AR</option>
+		<option value="CO">CO</option>
+		<option value="AZ">AZ</option>
+		<option value="ID ">ID </option>
+		<option value="MS">MS</option>
+		<option value="PA">PA</option>
+		
+		<option value="MA">MA</option>
+		<option value="KY">KY</option>
+		<option value="MI">MI</option>
+		<option value="NH">NH</option>
+		<option value="VA">VA</option>
+		<option value="SC">SC</option>
+		<option value="AK">AK</option>
+		<option value="DE">DE </option>
+		<option value="DC">DC</option>
+		<option value="ME">ME</option>
+		<option value="NE">NE</option>
+		
+		<option value="SD">SD</option>
+		<option value="VT">VT</option>
+		<option value="AL">AL</option>
+		<option value="HI">HI</option>
+		<option value="IL">IL</option>
+		<option value="WY">WY</option>
+		<option value="OR">OR</option>
+		<option value="WV">WV</option>
+		<option value="TX">TX</option>
+		<option value="NY">NY</option>
+		<option value="KS">KS</option>
+		
+		<option value="IN">IN</option>
+		<option value="NJ">NJ</option>
+		<option value="WI">WI</option>
+		<option value="OK">OK</option>
+		<option value="CA">CA</option>
+		<option value="IA">IA</option>
+		<option value="GA">GA</option>
+		<option value="LA">LA</option>
+	  </select>
+	  
+	  <select id="similarity_from" class="w3-select w3-border" name="year1" onChange="change('similarity_from','similarity_to')">
+			<option value="" disabled selected>from</option>
+			<option value=1970>1970</option>
+			<option value=1971>1971</option>
+			<option value=1972>1972</option>
+			<option value=1973>1973</option>
+			<option value=1974>1974</option>
+			<option value=1975>1975</option>
+			<option value=1976>1976</option>
+			<option value=1977>1977</option>
+			<option value=1978>1978</option>
+			<option value=1979>1979</option>
+			<option value=1980>1980</option>
+			<option value=1981>1981</option>
+			<option value=1982>1982</option>
+			<option value=1983>1983</option>
+			<option value=1984>1984</option>
+			<option value=1985>1985</option>
+			<option value=1986>1986</option>
+			<option value=1987>1987</option>
+			<option value=1988>1988</option>
+			<option value=1989>1989</option>
+			<option value=1990>1990</option>
+			<option value=1991>1991</option>
+			<option value=1992>1992</option>
+			<option value=1993>1993</option>
+			<option value=1994>1994</option>
+			<option value=1995>1995</option>
+			<option value=1996>1996</option>
+			<option value=1997>1997</option>
+			<option value=1998>1998</option>
+			<option value=1999>1999</option>
+			<option value=2000>2000</option>
+			<option value=2001>2001</option>
+			<option value=2002>2002</option>
+			<option value=2003>2003</option>
+			<option value=2004>2004</option>
+			<option value=2005>2005</option>
+			<option value=2006>2006</option>
+			<option value=2007>2007</option>
+			<option value=2008>2008</option>
+			<option value=2009>2009</option>
+			<option value=2010>2010</option>
+			<option value=2011>2011</option>
+			<option value=2012>2012</option>
+			<option value=2013>2013</option>
+			<option value=2014>2014</option>
+			<option value=2015>2015</option>
+			<option value=2016>2016</option>
+			<option value=2017>2017</option>
+	 	</select>
+
+
+	 	<select id="similarity_to" class="w3-select w3-border" name="year2">
+			<option value="" disabled selected>to</option>
+			<option value=1970 disabled="true">1970</option>
+			<option value=1971 disabled="true">1971</option>
+			<option value=1972 disabled="true">1972</option>
+			<option value=1973 disabled="true">1973</option>
+			<option value=1974 disabled="true">1974</option>
+			<option value=1975 disabled="true">1975</option>
+			<option value=1976 disabled="true">1976</option>
+			<option value=1977 disabled="true">1977</option>
+			<option value=1978 disabled="true">1978</option>
+			<option value=1979 disabled="true">1979</option>
+			<option value=1980 disabled="true">1980</option>
+			<option value=1981 disabled="true">1981</option>
+			<option value=1982 disabled="true">1982</option>
+			<option value=1983 disabled="true">1983</option>
+			<option value=1984 disabled="true">1984</option>
+			<option value=1985 disabled="true">1985</option>
+			<option value=1986 disabled="true">1986</option>
+			<option value=1987 disabled="true">1987</option>
+			<option value=1988 disabled="true">1988</option>
+			<option value=1989 disabled="true">1989</option>
+			<option value=1990 disabled="true">1990</option>
+			<option value=1991 disabled="true">1991</option>
+			<option value=1992 disabled="true">1992</option>
+			<option value=1993 disabled="true">1993</option>
+			<option value=1994 disabled="true">1994</option>
+			<option value=1995 disabled="true" >1995</option>
+			<option value=1996 disabled="true">1996</option>
+			<option value=1997 disabled="true">1997</option>
+			<option value=1998 disabled="true">1998</option>
+			<option value=1999 disabled="true">1999</option>
+			<option value=2000 disabled="true">2000</option>
+			<option value=2001 disabled="true">2001</option>
+			<option value=2002 disabled="true">2002</option>
+			<option value=2003 disabled="true">2003</option>
+			<option value=2004 disabled="true">2004</option>
+			<option value=2005 disabled="true">2005</option>
+			<option value=2006 disabled="true">2006</option>
+			<option value=2007 disabled="true">2007</option>
+			<option value=2008 disabled="true">2008</option>
+			<option value=2009 disabled="true">2009</option>
+			<option value=2010 disabled="true">2010</option>
+			<option value=2011 disabled="true">2011</option>
+			<option value=2012 disabled="true">2012</option>
+			<option value=2013 disabled="true"d>2013</option>
+			<option value=2014 disabled="true">2014</option>
+			<option value=2015 disabled="true">2015</option>
+			<option value=2016 disabled="true">2016</option>
+			<option value=2017 disabled="true">2017</option>
+	 	</select>
+	  
+	  <!-- <select class="w3-select w3-border" name="option3">
+		<option value="" disabled selected>difference</option>
+		<option value="100">100</option>
+		<option value="200">200</option>
+		<option value="300">300</option>
+		<option value="400">400</option>
+		<option value="500">500</option>
+	  </select>-->
+	  
+	 <p><button onclick="submit2()" type="button"  class="w3-btn w3-teal" >Analyze</button></p>
+	</form>
+</div>	
+	
+
+<!-- this is balance_state form -->
+<div id="balance_state" class="w3-display-container w3-container form" style="margin:0 auto;width:600px;height:300px;display:none">
+	<form class="w3-container w3-card-4">
+	
+	<select id="balance_state_state" class="w3-select w3-border" name="option">
+		<option value="" disabled selected>State</option>
+		<option value="ND">ND</option>
+		<option value="NM">NM</option>
+		<option value="NC">NC</option>
+		<option value="UT">UT</option>
+		<option value="RI">RI</option>
+		<option value="WA">WA</option>
+		<option value="TN">TN</option>
+		<option value="FL ">FL</option>
+		<option value="CT">CT</option>
+		<option value="MD">MD</option>
+		<option value="MN">MN</option>
+		
+		<option value="MO">MO</option>
+		<option value="MT">MT</option>
+		<option value="OH">OH</option>
+		<option value="NV">NV</option>
+		<option value="AR">AR</option>
+		<option value="CO">CO</option>
+		<option value="AZ">AZ</option>
+		<option value="ID ">ID </option>
+		<option value="MS">MS</option>
+		<option value="PA">PA</option>
+		
+		<option value="MA">MA</option>
+		<option value="KY">KY</option>
+		<option value="MI">MI</option>
+		<option value="NH">NH</option>
+		<option value="VA">VA</option>
+		<option value="SC">SC</option>
+		<option value="AK">AK</option>
+		<option value="DE">DE </option>
+		<option value="DC">DC</option>
+		<option value="ME">ME</option>
+		<option value="NE">NE</option>
+		
+		<option value="SD">SD</option>
+		<option value="VT">VT</option>
+		<option value="AL">AL</option>
+		<option value="HI">HI</option>
+		<option value="IL">IL</option>
+		<option value="WY">WY</option>
+		<option value="OR">OR</option>
+		<option value="WV">WV</option>
+		<option value="TX">TX</option>
+		<option value="NY">NY</option>
+		<option value="KS">KS</option>
+		
+		<option value="IN">IN</option>
+		<option value="NJ">NJ</option>
+		<option value="WI">WI</option>
+		<option value="OK">OK</option>
+		<option value="CA">CA</option>
+		<option value="IA">IA</option>
+		<option value="GA">GA</option>
+		<option value="LA">LA</option>
+	  </select>	  
+	 
+	 <select id="balance_state_type" class="w3-select w3-border" name="option">
+		<option value="" disabled selected>Type</option>
+		<option value="expenditure">EXPENDITURE</option>
+		<option value="price">PRICE</option>
+		<option value="production">PRODUCTION</option>
+		<option value="use">USE</option>
+	  </select>
+	  
+	  <select id="balance_state_from" class="w3-select w3-border" name="year1" onChange="change('balance_state_from','balance_state_to')">
+			<option value="" disabled selected>from</option>
+			<option value=1970>1970</option>
+			<option value=1971>1971</option>
+			<option value=1972>1972</option>
+			<option value=1973>1973</option>
+			<option value=1974>1974</option>
+			<option value=1975>1975</option>
+			<option value=1976>1976</option>
+			<option value=1977>1977</option>
+			<option value=1978>1978</option>
+			<option value=1979>1979</option>
+			<option value=1980>1980</option>
+			<option value=1981>1981</option>
+			<option value=1982>1982</option>
+			<option value=1983>1983</option>
+			<option value=1984>1984</option>
+			<option value=1985>1985</option>
+			<option value=1986>1986</option>
+			<option value=1987>1987</option>
+			<option value=1988>1988</option>
+			<option value=1989>1989</option>
+			<option value=1990>1990</option>
+			<option value=1991>1991</option>
+			<option value=1992>1992</option>
+			<option value=1993>1993</option>
+			<option value=1994>1994</option>
+			<option value=1995>1995</option>
+			<option value=1996>1996</option>
+			<option value=1997>1997</option>
+			<option value=1998>1998</option>
+			<option value=1999>1999</option>
+			<option value=2000>2000</option>
+			<option value=2001>2001</option>
+			<option value=2002>2002</option>
+			<option value=2003>2003</option>
+			<option value=2004>2004</option>
+			<option value=2005>2005</option>
+			<option value=2006>2006</option>
+			<option value=2007>2007</option>
+			<option value=2008>2008</option>
+			<option value=2009>2009</option>
+			<option value=2010>2010</option>
+			<option value=2011>2011</option>
+			<option value=2012>2012</option>
+			<option value=2013>2013</option>
+			<option value=2014>2014</option>
+			<option value=2015>2015</option>
+			<option value=2016>2016</option>
+			<option value=2017>2017</option>
+	 	</select>
+
+
+	 	<select id="balance_state_to" class="w3-select w3-border" name="year2">
+			<option value="" disabled selected>to</option>
+			<option value=1970 disabled="true">1970</option>
+			<option value=1971 disabled="true">1971</option>
+			<option value=1972 disabled="true">1972</option>
+			<option value=1973 disabled="true">1973</option>
+			<option value=1974 disabled="true">1974</option>
+			<option value=1975 disabled="true">1975</option>
+			<option value=1976 disabled="true">1976</option>
+			<option value=1977 disabled="true">1977</option>
+			<option value=1978 disabled="true">1978</option>
+			<option value=1979 disabled="true">1979</option>
+			<option value=1980 disabled="true">1980</option>
+			<option value=1981 disabled="true">1981</option>
+			<option value=1982 disabled="true">1982</option>
+			<option value=1983 disabled="true">1983</option>
+			<option value=1984 disabled="true">1984</option>
+			<option value=1985 disabled="true">1985</option>
+			<option value=1986 disabled="true">1986</option>
+			<option value=1987 disabled="true">1987</option>
+			<option value=1988 disabled="true">1988</option>
+			<option value=1989 disabled="true">1989</option>
+			<option value=1990 disabled="true">1990</option>
+			<option value=1991 disabled="true">1991</option>
+			<option value=1992 disabled="true">1992</option>
+			<option value=1993 disabled="true">1993</option>
+			<option value=1994 disabled="true">1994</option>
+			<option value=1995 disabled="true" >1995</option>
+			<option value=1996 disabled="true">1996</option>
+			<option value=1997 disabled="true">1997</option>
+			<option value=1998 disabled="true">1998</option>
+			<option value=1999 disabled="true">1999</option>
+			<option value=2000 disabled="true">2000</option>
+			<option value=2001 disabled="true">2001</option>
+			<option value=2002 disabled="true">2002</option>
+			<option value=2003 disabled="true">2003</option>
+			<option value=2004 disabled="true">2004</option>
+			<option value=2005 disabled="true">2005</option>
+			<option value=2006 disabled="true">2006</option>
+			<option value=2007 disabled="true">2007</option>
+			<option value=2008 disabled="true">2008</option>
+			<option value=2009 disabled="true">2009</option>
+			<option value=2010 disabled="true">2010</option>
+			<option value=2011 disabled="true">2011</option>
+			<option value=2012 disabled="true">2012</option>
+			<option value=2013 disabled="true"d>2013</option>
+			<option value=2014 disabled="true">2014</option>
+			<option value=2015 disabled="true">2015</option>
+			<option value=2016 disabled="true">2016</option>
+			<option value=2017 disabled="true">2017</option>
+	 	</select>
+	  
+	 <p><button onclick="submit3()" type="button"  class="w3-btn w3-teal" >Analyze</button></p>
+	</form>
+</div>	
+
+
+
+<!-- this is balance_sector form -->
+<div id="balance_sector" class="w3-display-container w3-container form" style="margin:0 auto;width:600px;height:300px;display:none">
+	<form class="w3-container w3-card-4">
+	
+	<select id="balance_sector_state" class="w3-select w3-border" name="option">
+		<option value="" disabled selected>State</option>
+		<option value="ND">ND</option>
+		<option value="NM">NM</option>
+		<option value="NC">NC</option>
+		<option value="UT">UT</option>
+		<option value="RI">RI</option>
+		<option value="WA">WA</option>
+		<option value="TN">TN</option>
+		<option value="FL ">FL</option>
+		<option value="CT">CT</option>
+		<option value="MD">MD</option>
+		<option value="MN">MN</option>
+		
+		<option value="MO">MO</option>
+		<option value="MT">MT</option>
+		<option value="OH">OH</option>
+		<option value="NV">NV</option>
+		<option value="AR">AR</option>
+		<option value="CO">CO</option>
+		<option value="AZ">AZ</option>
+		<option value="ID ">ID </option>
+		<option value="MS">MS</option>
+		<option value="PA">PA</option>
+		
+		<option value="MA">MA</option>
+		<option value="KY">KY</option>
+		<option value="MI">MI</option>
+		<option value="NH">NH</option>
+		<option value="VA">VA</option>
+		<option value="SC">SC</option>
+		<option value="AK">AK</option>
+		<option value="DE">DE </option>
+		<option value="DC">DC</option>
+		<option value="ME">ME</option>
+		<option value="NE">NE</option>
+		
+		<option value="SD">SD</option>
+		<option value="VT">VT</option>
+		<option value="AL">AL</option>
+		<option value="HI">HI</option>
+		<option value="IL">IL</option>
+		<option value="WY">WY</option>
+		<option value="OR">OR</option>
+		<option value="WV">WV</option>
+		<option value="TX">TX</option>
+		<option value="NY">NY</option>
+		<option value="KS">KS</option>
+		
+		<option value="IN">IN</option>
+		<option value="NJ">NJ</option>
+		<option value="WI">WI</option>
+		<option value="OK">OK</option>
+		<option value="CA">CA</option>
+		<option value="IA">IA</option>
+		<option value="GA">GA</option>
+		<option value="LA">LA</option>
+	  </select>	  
+	 
+	 <select id="balance_sector_type" class="w3-select w3-border" name="option">
+		<option value="" disabled selected>Type</option>
+		<option value="expenditure">EXPENDITURE</option>
+		<option value="price">PRICE</option>
+		<option value="production">PRODUCTION</option>
+		<option value="use">USE</option>
+	  </select>
+	  
+	  <select id="balance_sector_sector" class="w3-select w3-border" name="option">
+		<option value="" disabled selected>Sector</option>
+		<option value="commercial sector">COMMERCIAL SECTOR</option>
+		<option value="electric power sector">ELECTRIC POWER SECTOR</option>
+		<option value="industrial sector">INDUSTRIAL SECTOR</option>
+		<option value="residential sector">RESIDENTIAL SECTOR</option>
+		<option value="transportation sector">TRANSPORTATION SECTOR</option>
+	  </select>
+	  
+	  <select id="balance_sector_from" class="w3-select w3-border" name="year1" onChange="change('balance_sector_from','balance_sector_to')">
+			<option value="" disabled selected>from</option>
+			<option value=1970>1970</option>
+			<option value=1971>1971</option>
+			<option value=1972>1972</option>
+			<option value=1973>1973</option>
+			<option value=1974>1974</option>
+			<option value=1975>1975</option>
+			<option value=1976>1976</option>
+			<option value=1977>1977</option>
+			<option value=1978>1978</option>
+			<option value=1979>1979</option>
+			<option value=1980>1980</option>
+			<option value=1981>1981</option>
+			<option value=1982>1982</option>
+			<option value=1983>1983</option>
+			<option value=1984>1984</option>
+			<option value=1985>1985</option>
+			<option value=1986>1986</option>
+			<option value=1987>1987</option>
+			<option value=1988>1988</option>
+			<option value=1989>1989</option>
+			<option value=1990>1990</option>
+			<option value=1991>1991</option>
+			<option value=1992>1992</option>
+			<option value=1993>1993</option>
+			<option value=1994>1994</option>
+			<option value=1995>1995</option>
+			<option value=1996>1996</option>
+			<option value=1997>1997</option>
+			<option value=1998>1998</option>
+			<option value=1999>1999</option>
+			<option value=2000>2000</option>
+			<option value=2001>2001</option>
+			<option value=2002>2002</option>
+			<option value=2003>2003</option>
+			<option value=2004>2004</option>
+			<option value=2005>2005</option>
+			<option value=2006>2006</option>
+			<option value=2007>2007</option>
+			<option value=2008>2008</option>
+			<option value=2009>2009</option>
+			<option value=2010>2010</option>
+			<option value=2011>2011</option>
+			<option value=2012>2012</option>
+			<option value=2013>2013</option>
+			<option value=2014>2014</option>
+			<option value=2015>2015</option>
+			<option value=2016>2016</option>
+			<option value=2017>2017</option>
+	 	</select>
+
+
+	 	<select id="balance_sector_to" class="w3-select w3-border" name="year2">
+			<option value="" disabled selected>to</option>
+			<option value=1970 disabled="true">1970</option>
+			<option value=1971 disabled="true">1971</option>
+			<option value=1972 disabled="true">1972</option>
+			<option value=1973 disabled="true">1973</option>
+			<option value=1974 disabled="true">1974</option>
+			<option value=1975 disabled="true">1975</option>
+			<option value=1976 disabled="true">1976</option>
+			<option value=1977 disabled="true">1977</option>
+			<option value=1978 disabled="true">1978</option>
+			<option value=1979 disabled="true">1979</option>
+			<option value=1980 disabled="true">1980</option>
+			<option value=1981 disabled="true">1981</option>
+			<option value=1982 disabled="true">1982</option>
+			<option value=1983 disabled="true">1983</option>
+			<option value=1984 disabled="true">1984</option>
+			<option value=1985 disabled="true">1985</option>
+			<option value=1986 disabled="true">1986</option>
+			<option value=1987 disabled="true">1987</option>
+			<option value=1988 disabled="true">1988</option>
+			<option value=1989 disabled="true">1989</option>
+			<option value=1990 disabled="true">1990</option>
+			<option value=1991 disabled="true">1991</option>
+			<option value=1992 disabled="true">1992</option>
+			<option value=1993 disabled="true">1993</option>
+			<option value=1994 disabled="true">1994</option>
+			<option value=1995 disabled="true" >1995</option>
+			<option value=1996 disabled="true">1996</option>
+			<option value=1997 disabled="true">1997</option>
+			<option value=1998 disabled="true">1998</option>
+			<option value=1999 disabled="true">1999</option>
+			<option value=2000 disabled="true">2000</option>
+			<option value=2001 disabled="true">2001</option>
+			<option value=2002 disabled="true">2002</option>
+			<option value=2003 disabled="true">2003</option>
+			<option value=2004 disabled="true">2004</option>
+			<option value=2005 disabled="true">2005</option>
+			<option value=2006 disabled="true">2006</option>
+			<option value=2007 disabled="true">2007</option>
+			<option value=2008 disabled="true">2008</option>
+			<option value=2009 disabled="true">2009</option>
+			<option value=2010 disabled="true">2010</option>
+			<option value=2011 disabled="true">2011</option>
+			<option value=2012 disabled="true">2012</option>
+			<option value=2013 disabled="true"d>2013</option>
+			<option value=2014 disabled="true">2014</option>
+			<option value=2015 disabled="true">2015</option>
+			<option value=2016 disabled="true">2016</option>
+			<option value=2017 disabled="true">2017</option>
+	 	</select>
+	  
+	  <p><button onclick="submit4()" type="button"  class="w3-btn w3-teal" >Analyze</button></p>
+	</form>
+</div>	
+
+<!-- this is average_state form -->
+<div id="average_state" class="w3-display-container w3-container form" style="margin:0 auto;width:600px;height:300px;display:none">
+	<form class="w3-container w3-card-4" >
+	 
+	 <select id="average_state_type" class="w3-select w3-border" name="option">
+		<option value="" disabled selected>Type</option>
+		<option value="expenditure">EXPENDITURE</option>
+		<option value="price">PRICE</option>
+		<option value="production">PRODUCTION</option>
+		<option value="use">USE</option>
+	  </select>
+	  
+	 <select id="average_state_from" class="w3-select w3-border" name="year1" onChange="change('average_state_from','average_state_to')">
+			<option value="" disabled selected>from</option>
+			<option value=1970>1970</option>
+			<option value=1971>1971</option>
+			<option value=1972>1972</option>
+			<option value=1973>1973</option>
+			<option value=1974>1974</option>
+			<option value=1975>1975</option>
+			<option value=1976>1976</option>
+			<option value=1977>1977</option>
+			<option value=1978>1978</option>
+			<option value=1979>1979</option>
+			<option value=1980>1980</option>
+			<option value=1981>1981</option>
+			<option value=1982>1982</option>
+			<option value=1983>1983</option>
+			<option value=1984>1984</option>
+			<option value=1985>1985</option>
+			<option value=1986>1986</option>
+			<option value=1987>1987</option>
+			<option value=1988>1988</option>
+			<option value=1989>1989</option>
+			<option value=1990>1990</option>
+			<option value=1991>1991</option>
+			<option value=1992>1992</option>
+			<option value=1993>1993</option>
+			<option value=1994>1994</option>
+			<option value=1995>1995</option>
+			<option value=1996>1996</option>
+			<option value=1997>1997</option>
+			<option value=1998>1998</option>
+			<option value=1999>1999</option>
+			<option value=2000>2000</option>
+			<option value=2001>2001</option>
+			<option value=2002>2002</option>
+			<option value=2003>2003</option>
+			<option value=2004>2004</option>
+			<option value=2005>2005</option>
+			<option value=2006>2006</option>
+			<option value=2007>2007</option>
+			<option value=2008>2008</option>
+			<option value=2009>2009</option>
+			<option value=2010>2010</option>
+			<option value=2011>2011</option>
+			<option value=2012>2012</option>
+			<option value=2013>2013</option>
+			<option value=2014>2014</option>
+			<option value=2015>2015</option>
+			<option value=2016>2016</option>
+			<option value=2017>2017</option>
+	 	</select>
+
+
+	 	<select id="average_state_to" class="w3-select w3-border" name="year2">
+			<option value="" disabled selected>to</option>
+			<option value=1970 disabled="true">1970</option>
+			<option value=1971 disabled="true">1971</option>
+			<option value=1972 disabled="true">1972</option>
+			<option value=1973 disabled="true">1973</option>
+			<option value=1974 disabled="true">1974</option>
+			<option value=1975 disabled="true">1975</option>
+			<option value=1976 disabled="true">1976</option>
+			<option value=1977 disabled="true">1977</option>
+			<option value=1978 disabled="true">1978</option>
+			<option value=1979 disabled="true">1979</option>
+			<option value=1980 disabled="true">1980</option>
+			<option value=1981 disabled="true">1981</option>
+			<option value=1982 disabled="true">1982</option>
+			<option value=1983 disabled="true">1983</option>
+			<option value=1984 disabled="true">1984</option>
+			<option value=1985 disabled="true">1985</option>
+			<option value=1986 disabled="true">1986</option>
+			<option value=1987 disabled="true">1987</option>
+			<option value=1988 disabled="true">1988</option>
+			<option value=1989 disabled="true">1989</option>
+			<option value=1990 disabled="true">1990</option>
+			<option value=1991 disabled="true">1991</option>
+			<option value=1992 disabled="true">1992</option>
+			<option value=1993 disabled="true">1993</option>
+			<option value=1994 disabled="true">1994</option>
+			<option value=1995 disabled="true" >1995</option>
+			<option value=1996 disabled="true">1996</option>
+			<option value=1997 disabled="true">1997</option>
+			<option value=1998 disabled="true">1998</option>
+			<option value=1999 disabled="true">1999</option>
+			<option value=2000 disabled="true">2000</option>
+			<option value=2001 disabled="true">2001</option>
+			<option value=2002 disabled="true">2002</option>
+			<option value=2003 disabled="true">2003</option>
+			<option value=2004 disabled="true">2004</option>
+			<option value=2005 disabled="true">2005</option>
+			<option value=2006 disabled="true">2006</option>
+			<option value=2007 disabled="true">2007</option>
+			<option value=2008 disabled="true">2008</option>
+			<option value=2009 disabled="true">2009</option>
+			<option value=2010 disabled="true">2010</option>
+			<option value=2011 disabled="true">2011</option>
+			<option value=2012 disabled="true">2012</option>
+			<option value=2013 disabled="true"d>2013</option>
+			<option value=2014 disabled="true">2014</option>
+			<option value=2015 disabled="true">2015</option>
+			<option value=2016 disabled="true">2016</option>
+			<option value=2017 disabled="true">2017</option>
+	 	</select>
+	  
+	  <p><button onclick="submit5()" type="button"  class="w3-btn w3-teal" >Analyze</button></p>
+	</form>
+</div>	
+
+
+
+
+<!-- this is average_sector form -->
+<div id="average_sector" class="w3-display-container w3-container form" style="margin:0 auto;width:600px;height:300px;display:none">
+	<form class="w3-container w3-card-4" >
+	 
+	 <select id="average_sector_type" class="w3-select w3-border" name="option">
+		<option value="" disabled selected>Type</option>
+		<option value="expenditure">EXPENDITURE</option>
+		<option value="price">PRICE</option>
+		<option value="production">PRODUCTION</option>
+		<option value="use">USE</option>
+	  </select>
+	  
+	  <select id="average_sector_state" class="w3-select w3-border" name="option">
+		<option value="" disabled selected>State</option>
+		<option value="ND">ND</option>
+		<option value="NM">NM</option>
+		<option value="NC">NC</option>
+		<option value="UT">UT</option>
+		<option value="RI">RI</option>
+		<option value="WA">WA</option>
+		<option value="TN">TN</option>
+		<option value="FL ">FL</option>
+		<option value="CT">CT</option>
+		<option value="MD">MD</option>
+		<option value="MN">MN</option>
+		
+		<option value="MO">MO</option>
+		<option value="MT">MT</option>
+		<option value="OH">OH</option>
+		<option value="NV">NV</option>
+		<option value="AR">AR</option>
+		<option value="CO">CO</option>
+		<option value="AZ">AZ</option>
+		<option value="ID ">ID </option>
+		<option value="MS">MS</option>
+		<option value="PA">PA</option>
+		
+		<option value="MA">MA</option>
+		<option value="KY">KY</option>
+		<option value="MI">MI</option>
+		<option value="NH">NH</option>
+		<option value="VA">VA</option>
+		<option value="SC">SC</option>
+		<option value="AK">AK</option>
+		<option value="DE">DE </option>
+		<option value="DC">DC</option>
+		<option value="ME">ME</option>
+		<option value="NE">NE</option>
+		
+		<option value="SD">SD</option>
+		<option value="VT">VT</option>
+		<option value="AL">AL</option>
+		<option value="HI">HI</option>
+		<option value="IL">IL</option>
+		<option value="WY">WY</option>
+		<option value="OR">OR</option>
+		<option value="WV">WV</option>
+		<option value="TX">TX</option>
+		<option value="NY">NY</option>
+		<option value="KS">KS</option>
+		
+		<option value="IN">IN</option>
+		<option value="NJ">NJ</option>
+		<option value="WI">WI</option>
+		<option value="OK">OK</option>
+		<option value="CA">CA</option>
+		<option value="IA">IA</option>
+		<option value="GA">GA</option>
+		<option value="LA">LA</option>
+	  </select>	  
+	  
+	 <select id="average_sector_from" class="w3-select w3-border" name="year1" onChange="change('average_sector_from','average_sector_to')">
+			<option value="" disabled selected>from</option>
+			<option value=1970>1970</option>
+			<option value=1971>1971</option>
+			<option value=1972>1972</option>
+			<option value=1973>1973</option>
+			<option value=1974>1974</option>
+			<option value=1975>1975</option>
+			<option value=1976>1976</option>
+			<option value=1977>1977</option>
+			<option value=1978>1978</option>
+			<option value=1979>1979</option>
+			<option value=1980>1980</option>
+			<option value=1981>1981</option>
+			<option value=1982>1982</option>
+			<option value=1983>1983</option>
+			<option value=1984>1984</option>
+			<option value=1985>1985</option>
+			<option value=1986>1986</option>
+			<option value=1987>1987</option>
+			<option value=1988>1988</option>
+			<option value=1989>1989</option>
+			<option value=1990>1990</option>
+			<option value=1991>1991</option>
+			<option value=1992>1992</option>
+			<option value=1993>1993</option>
+			<option value=1994>1994</option>
+			<option value=1995>1995</option>
+			<option value=1996>1996</option>
+			<option value=1997>1997</option>
+			<option value=1998>1998</option>
+			<option value=1999>1999</option>
+			<option value=2000>2000</option>
+			<option value=2001>2001</option>
+			<option value=2002>2002</option>
+			<option value=2003>2003</option>
+			<option value=2004>2004</option>
+			<option value=2005>2005</option>
+			<option value=2006>2006</option>
+			<option value=2007>2007</option>
+			<option value=2008>2008</option>
+			<option value=2009>2009</option>
+			<option value=2010>2010</option>
+			<option value=2011>2011</option>
+			<option value=2012>2012</option>
+			<option value=2013>2013</option>
+			<option value=2014>2014</option>
+			<option value=2015>2015</option>
+			<option value=2016>2016</option>
+			<option value=2017>2017</option>
+	 	</select>
+
+
+	 	<select id="average_sector_to" class="w3-select w3-border" name="year2">
+			<option value="" disabled selected>to</option>
+			<option value=1970 disabled="true">1970</option>
+			<option value=1971 disabled="true">1971</option>
+			<option value=1972 disabled="true">1972</option>
+			<option value=1973 disabled="true">1973</option>
+			<option value=1974 disabled="true">1974</option>
+			<option value=1975 disabled="true">1975</option>
+			<option value=1976 disabled="true">1976</option>
+			<option value=1977 disabled="true">1977</option>
+			<option value=1978 disabled="true">1978</option>
+			<option value=1979 disabled="true">1979</option>
+			<option value=1980 disabled="true">1980</option>
+			<option value=1981 disabled="true">1981</option>
+			<option value=1982 disabled="true">1982</option>
+			<option value=1983 disabled="true">1983</option>
+			<option value=1984 disabled="true">1984</option>
+			<option value=1985 disabled="true">1985</option>
+			<option value=1986 disabled="true">1986</option>
+			<option value=1987 disabled="true">1987</option>
+			<option value=1988 disabled="true">1988</option>
+			<option value=1989 disabled="true">1989</option>
+			<option value=1990 disabled="true">1990</option>
+			<option value=1991 disabled="true">1991</option>
+			<option value=1992 disabled="true">1992</option>
+			<option value=1993 disabled="true">1993</option>
+			<option value=1994 disabled="true">1994</option>
+			<option value=1995 disabled="true" >1995</option>
+			<option value=1996 disabled="true">1996</option>
+			<option value=1997 disabled="true">1997</option>
+			<option value=1998 disabled="true">1998</option>
+			<option value=1999 disabled="true">1999</option>
+			<option value=2000 disabled="true">2000</option>
+			<option value=2001 disabled="true">2001</option>
+			<option value=2002 disabled="true">2002</option>
+			<option value=2003 disabled="true">2003</option>
+			<option value=2004 disabled="true">2004</option>
+			<option value=2005 disabled="true">2005</option>
+			<option value=2006 disabled="true">2006</option>
+			<option value=2007 disabled="true">2007</option>
+			<option value=2008 disabled="true">2008</option>
+			<option value=2009 disabled="true">2009</option>
+			<option value=2010 disabled="true">2010</option>
+			<option value=2011 disabled="true">2011</option>
+			<option value=2012 disabled="true">2012</option>
+			<option value=2013 disabled="true"d>2013</option>
+			<option value=2014 disabled="true">2014</option>
+			<option value=2015 disabled="true">2015</option>
+			<option value=2016 disabled="true">2016</option>
+			<option value=2017 disabled="true">2017</option>
+	 	</select>
+	  
+	  <p><button onclick="submit7()" type="button"  class="w3-btn w3-teal" >Analyze</button></p>
+	</form>
+</div>	
+
+
+<!-- this is total_state form -->
+<div id="total_state" class="w3-display-container w3-container form" style="margin:0 auto;width:600px;height:300px;display:none">
+	<form class="w3-container w3-card-4" >
+	 
+	 <select id="total_state_type" class="w3-select w3-border" name="option">
+		<option value="" disabled selected>Type</option>
+		<option value="expenditure">EXPENDITURE</option>
+		<option value="price">PRICE</option>
+		<option value="production">PRODUCTION</option>
+		<option value="use">USE</option>
+	  </select>
+	  
+	  <select id="total_state_state" class="w3-select w3-border" name="option">
+		<option value="" disabled selected>State</option>
+		<option value="ND">ND</option>
+		<option value="NM">NM</option>
+		<option value="NC">NC</option>
+		<option value="UT">UT</option>
+		<option value="RI">RI</option>
+		<option value="WA">WA</option>
+		<option value="TN">TN</option>
+		<option value="FL">FL</option>
+		<option value="CT">CT</option>
+		<option value="MD">MD</option>
+		<option value="MN">MN</option>
+		
+		<option value="MO">MO</option>
+		<option value="MT">MT</option>
+		<option value="OH">OH</option>
+		<option value="NV">NV</option>
+		<option value="AR">AR</option>
+		<option value="CO">CO</option>
+		<option value="AZ">AZ</option>
+		<option value="ID ">ID </option>
+		<option value="MS">MS</option>
+		<option value="PA">PA</option>
+		
+		<option value="MA">MA</option>
+		<option value="KY">KY</option>
+		<option value="MI">MI</option>
+		<option value="NH">NH</option>
+		<option value="VA">VA</option>
+		<option value="SC">SC</option>
+		<option value="AK">AK</option>
+		<option value="DE">DE </option>
+		<option value="DC">DC</option>
+		<option value="ME">ME</option>
+		<option value="NE">NE</option>
+		
+		<option value="SD">SD</option>
+		<option value="VT">VT</option>
+		<option value="AL">AL</option>
+		<option value="HI">HI</option>
+		<option value="IL">IL</option>
+		<option value="WY">WY</option>
+		<option value="OR">OR</option>
+		<option value="WV">WV</option>
+		<option value="TX">TX</option>
+		<option value="NY">NY</option>
+		<option value="KS">KS</option>
+		
+		<option value="IN">IN</option>
+		<option value="NJ">NJ</option>
+		<option value="WI">WI</option>
+		<option value="OK">OK</option>
+		<option value="CA">CA</option>
+		<option value="IA">IA</option>
+		<option value="GA">GA</option>
+		<option value="LA">LA</option>
+	  </select>	  
+	  
+	 <select id="total_state_year" class="w3-select w3-border" name="year1" >
+			<option value="" disabled selected>year</option>
+			<option value=1970>1970</option>
+			<option value=1971>1971</option>
+			<option value=1972>1972</option>
+			<option value=1973>1973</option>
+			<option value=1974>1974</option>
+			<option value=1975>1975</option>
+			<option value=1976>1976</option>
+			<option value=1977>1977</option>
+			<option value=1978>1978</option>
+			<option value=1979>1979</option>
+			<option value=1980>1980</option>
+			<option value=1981>1981</option>
+			<option value=1982>1982</option>
+			<option value=1983>1983</option>
+			<option value=1984>1984</option>
+			<option value=1985>1985</option>
+			<option value=1986>1986</option>
+			<option value=1987>1987</option>
+			<option value=1988>1988</option>
+			<option value=1989>1989</option>
+			<option value=1990>1990</option>
+			<option value=1991>1991</option>
+			<option value=1992>1992</option>
+			<option value=1993>1993</option>
+			<option value=1994>1994</option>
+			<option value=1995>1995</option>
+			<option value=1996>1996</option>
+			<option value=1997>1997</option>
+			<option value=1998>1998</option>
+			<option value=1999>1999</option>
+			<option value=2000>2000</option>
+			<option value=2001>2001</option>
+			<option value=2002>2002</option>
+			<option value=2003>2003</option>
+			<option value=2004>2004</option>
+			<option value=2005>2005</option>
+			<option value=2006>2006</option>
+			<option value=2007>2007</option>
+			<option value=2008>2008</option>
+			<option value=2009>2009</option>
+			<option value=2010>2010</option>
+			<option value=2011>2011</option>
+			<option value=2012>2012</option>
+			<option value=2013>2013</option>
+			<option value=2014>2014</option>
+			<option value=2015>2015</option>
+			<option value=2016>2016</option>
+			<option value=2017>2017</option>
+	 	</select>  
+	  <p><button onclick="submit8()" type="button"  class="w3-btn w3-teal" >Analyze</button></p>
+	</form>
+</div>	
+
+
+<!-- this is total_sector form -->
+<div id="total_sector" class="w3-display-container w3-container form" style="margin:0 auto;width:600px;height:300px;display:none">
+	<form class="w3-container w3-card-4" >
+	 
+	 <select id="total_sector_type" class="w3-select w3-border" name="option">
+		<option value="" disabled selected>Type</option>
+		<option value="expenditure">EXPENDITURE</option>
+		<option value="price">PRICE</option>
+		<option value="production">PRODUCTION</option>
+		<option value="use">USE</option>
+	  </select>
+	  
+	  <select id="total_sector_state" class="w3-select w3-border" name="option">
+		<option value="" disabled selected>State</option>
+		<option value="ND">ND</option>
+		<option value="NM">NM</option>
+		<option value="NC">NC</option>
+		<option value="UT">UT</option>
+		<option value="RI">RI</option>
+		<option value="WA">WA</option>
+		<option value="TN">TN</option>
+		<option value="FL ">FL</option>
+		<option value="CT">CT</option>
+		<option value="MD">MD</option>
+		<option value="MN">MN</option>
+		
+		<option value="MO">MO</option>
+		<option value="MT">MT</option>
+		<option value="OH">OH</option>
+		<option value="NV">NV</option>
+		<option value="AR">AR</option>
+		<option value="CO">CO</option>
+		<option value="AZ">AZ</option>
+		<option value="ID ">ID </option>
+		<option value="MS">MS</option>
+		<option value="PA">PA</option>
+		
+		<option value="MA">MA</option>
+		<option value="KY">KY</option>
+		<option value="MI">MI</option>
+		<option value="NH">NH</option>
+		<option value="VA">VA</option>
+		<option value="SC">SC</option>
+		<option value="AK">AK</option>
+		<option value="DE">DE </option>
+		<option value="DC">DC</option>
+		<option value="ME">ME</option>
+		<option value="NE">NE</option>
+		
+		<option value="SD">SD</option>
+		<option value="VT">VT</option>
+		<option value="AL">AL</option>
+		<option value="HI">HI</option>
+		<option value="IL">IL</option>
+		<option value="WY">WY</option>
+		<option value="OR">OR</option>
+		<option value="WV">WV</option>
+		<option value="TX">TX</option>
+		<option value="NY">NY</option>
+		<option value="KS">KS</option>
+		
+		<option value="IN">IN</option>
+		<option value="NJ">NJ</option>
+		<option value="WI">WI</option>
+		<option value="OK">OK</option>
+		<option value="CA">CA</option>
+		<option value="IA">IA</option>
+		<option value="GA">GA</option>
+		<option value="LA">LA</option>
+	  </select>	  
+	  
+	  <select id="total_sector_sector" class="w3-select w3-border" name="option">
+		<option value="" disabled selected>Sector</option>
+		<option value="commercial sector">COMMERCIAL SECTOR</option>
+		<option value="electric power sector">ELECTRIC POWER SECTOR</option>
+		<option value="industrial sector">INDUSTRIAL SECTOR</option>
+		<option value="residential sector">RESIDENTIAL SECTOR</option>
+		<option value="transportation sector">TRANSPORTATION SECTOR</option>
+	  </select>
+	  
+	 <select id="total_sector_year" class="w3-select w3-border" name="year1" >
+			<option value="" disabled selected>year</option>
+			<option value=1970>1970</option>
+			<option value=1971>1971</option>
+			<option value=1972>1972</option>
+			<option value=1973>1973</option>
+			<option value=1974>1974</option>
+			<option value=1975>1975</option>
+			<option value=1976>1976</option>
+			<option value=1977>1977</option>
+			<option value=1978>1978</option>
+			<option value=1979>1979</option>
+			<option value=1980>1980</option>
+			<option value=1981>1981</option>
+			<option value=1982>1982</option>
+			<option value=1983>1983</option>
+			<option value=1984>1984</option>
+			<option value=1985>1985</option>
+			<option value=1986>1986</option>
+			<option value=1987>1987</option>
+			<option value=1988>1988</option>
+			<option value=1989>1989</option>
+			<option value=1990>1990</option>
+			<option value=1991>1991</option>
+			<option value=1992>1992</option>
+			<option value=1993>1993</option>
+			<option value=1994>1994</option>
+			<option value=1995>1995</option>
+			<option value=1996>1996</option>
+			<option value=1997>1997</option>
+			<option value=1998>1998</option>
+			<option value=1999>1999</option>
+			<option value=2000>2000</option>
+			<option value=2001>2001</option>
+			<option value=2002>2002</option>
+			<option value=2003>2003</option>
+			<option value=2004>2004</option>
+			<option value=2005>2005</option>
+			<option value=2006>2006</option>
+			<option value=2007>2007</option>
+			<option value=2008>2008</option>
+			<option value=2009>2009</option>
+			<option value=2010>2010</option>
+			<option value=2011>2011</option>
+			<option value=2012>2012</option>
+			<option value=2013>2013</option>
+			<option value=2014>2014</option>
+			<option value=2015>2015</option>
+			<option value=2016>2016</option>
+			<option value=2017>2017</option>
+	 	</select>  
+	  <p><button onclick="submit9()" type="button"  class="w3-btn w3-teal" >Analyze</button></p>
+	</form>
+</div>	
+
+
+<!-- this is reduction form -->
+<div id="reduction" class="w3-display-container w3-container form" style="margin:0 auto;width:600px;height:300px;display:none">
+	<form class="w3-container w3-card-4" >
+	 
+	 <select id="reduction_type" class="w3-select w3-border" name="option">
+		<option value="" disabled selected>Type</option>
+		<option value="expenditure">EXPENDITURE</option>
+		<option value="price">PRICE</option>
+		<option value="production">PRODUCTION</option>
+		<option value="use">USE</option>
+	  </select>
+	  
+	  <select id="reduction_from" class="w3-select w3-border" name="year1" onChange="change('reduction_from','reduction_to')">
+			<option value="" disabled selected>from</option>
+			<option value=1970>1970</option>
+			<option value=1971>1971</option>
+			<option value=1972>1972</option>
+			<option value=1973>1973</option>
+			<option value=1974>1974</option>
+			<option value=1975>1975</option>
+			<option value=1976>1976</option>
+			<option value=1977>1977</option>
+			<option value=1978>1978</option>
+			<option value=1979>1979</option>
+			<option value=1980>1980</option>
+			<option value=1981>1981</option>
+			<option value=1982>1982</option>
+			<option value=1983>1983</option>
+			<option value=1984>1984</option>
+			<option value=1985>1985</option>
+			<option value=1986>1986</option>
+			<option value=1987>1987</option>
+			<option value=1988>1988</option>
+			<option value=1989>1989</option>
+			<option value=1990>1990</option>
+			<option value=1991>1991</option>
+			<option value=1992>1992</option>
+			<option value=1993>1993</option>
+			<option value=1994>1994</option>
+			<option value=1995>1995</option>
+			<option value=1996>1996</option>
+			<option value=1997>1997</option>
+			<option value=1998>1998</option>
+			<option value=1999>1999</option>
+			<option value=2000>2000</option>
+			<option value=2001>2001</option>
+			<option value=2002>2002</option>
+			<option value=2003>2003</option>
+			<option value=2004>2004</option>
+			<option value=2005>2005</option>
+			<option value=2006>2006</option>
+			<option value=2007>2007</option>
+			<option value=2008>2008</option>
+			<option value=2009>2009</option>
+			<option value=2010>2010</option>
+			<option value=2011>2011</option>
+			<option value=2012>2012</option>
+			<option value=2013>2013</option>
+			<option value=2014>2014</option>
+			<option value=2015>2015</option>
+			<option value=2016>2016</option>
+			<option value=2017>2017</option>
+	 	</select>
+
+
+	 	<select id="reduction_to" class="w3-select w3-border" name="year2">
+			<option value="" disabled selected>to</option>
+			<option value=1970 disabled="true">1970</option>
+			<option value=1971 disabled="true">1971</option>
+			<option value=1972 disabled="true">1972</option>
+			<option value=1973 disabled="true">1973</option>
+			<option value=1974 disabled="true">1974</option>
+			<option value=1975 disabled="true">1975</option>
+			<option value=1976 disabled="true">1976</option>
+			<option value=1977 disabled="true">1977</option>
+			<option value=1978 disabled="true">1978</option>
+			<option value=1979 disabled="true">1979</option>
+			<option value=1980 disabled="true">1980</option>
+			<option value=1981 disabled="true">1981</option>
+			<option value=1982 disabled="true">1982</option>
+			<option value=1983 disabled="true">1983</option>
+			<option value=1984 disabled="true">1984</option>
+			<option value=1985 disabled="true">1985</option>
+			<option value=1986 disabled="true">1986</option>
+			<option value=1987 disabled="true">1987</option>
+			<option value=1988 disabled="true">1988</option>
+			<option value=1989 disabled="true">1989</option>
+			<option value=1990 disabled="true">1990</option>
+			<option value=1991 disabled="true">1991</option>
+			<option value=1992 disabled="true">1992</option>
+			<option value=1993 disabled="true">1993</option>
+			<option value=1994 disabled="true">1994</option>
+			<option value=1995 disabled="true" >1995</option>
+			<option value=1996 disabled="true">1996</option>
+			<option value=1997 disabled="true">1997</option>
+			<option value=1998 disabled="true">1998</option>
+			<option value=1999 disabled="true">1999</option>
+			<option value=2000 disabled="true">2000</option>
+			<option value=2001 disabled="true">2001</option>
+			<option value=2002 disabled="true">2002</option>
+			<option value=2003 disabled="true">2003</option>
+			<option value=2004 disabled="true">2004</option>
+			<option value=2005 disabled="true">2005</option>
+			<option value=2006 disabled="true">2006</option>
+			<option value=2007 disabled="true">2007</option>
+			<option value=2008 disabled="true">2008</option>
+			<option value=2009 disabled="true">2009</option>
+			<option value=2010 disabled="true">2010</option>
+			<option value=2011 disabled="true">2011</option>
+			<option value=2012 disabled="true">2012</option>
+			<option value=2013 disabled="true"d>2013</option>
+			<option value=2014 disabled="true">2014</option>
+			<option value=2015 disabled="true">2015</option>
+			<option value=2016 disabled="true">2016</option>
+			<option value=2017 disabled="true">2017</option>
+	 	</select>
+	  
+	  <p><button onclick="submit6()" type="button"  class="w3-btn w3-teal" >Analyze</button></p>
+	</form>
+</div>	
+
+<!-- this is univerality form -->
+<div id="univerality" class="w3-display-container w3-container form" style="margin:0 auto;width:600px;height:300px;display:none">
+	<form class="w3-container w3-card-4">
+	
+	 
+	 <select id="univerality_type" class="w3-select w3-border" name="type">
+		<option value="" disabled selected>Type</option>
+		<option value="expenditure">EXPENDITURE</option>
+		<option value="price">PRICE</option>
+		<option value="production">PRODUCTION</option>
+		<option value="use">USE</option>
+	  </select>
+	  
+	  <p><label>amount</label>
+	  <input id="univerality_amount" class="w3-input w3-border" name="amount" type="number"></p>
+	  
+	 
+	  <p><label>number</label>
+	  <input id="univerality_number" class="w3-input w3-border" name="number" type="number"></p>
+	  
+	  
+	  	<select id="univerality_year" class="w3-select w3-border" name="year1">
+			<option value="" disabled selected>year</option>
+			<option value=1970>1970</option>
+			<option value=1971>1971</option>
+			<option value=1972>1972</option>
+			<option value=1973>1973</option>
+			<option value=1974>1974</option>
+			<option value=1975>1975</option>
+			<option value=1976>1976</option>
+			<option value=1977>1977</option>
+			<option value=1978>1978</option>
+			<option value=1979>1979</option>
+			<option value=1980>1980</option>
+			<option value=1981>1981</option>
+			<option value=1982>1982</option>
+			<option value=1983>1983</option>
+			<option value=1984>1984</option>
+			<option value=1985>1985</option>
+			<option value=1986>1986</option>
+			<option value=1987>1987</option>
+			<option value=1988>1988</option>
+			<option value=1989>1989</option>
+			<option value=1990>1990</option>
+			<option value=1991>1991</option>
+			<option value=1992>1992</option>
+			<option value=1993>1993</option>
+			<option value=1994>1994</option>
+			<option value=1995>1995</option>
+			<option value=1996>1996</option>
+			<option value=1997>1997</option>
+			<option value=1998>1998</option>
+			<option value=1999>1999</option>
+			<option value=2000>2000</option>
+			<option value=2001>2001</option>
+			<option value=2002>2002</option>
+			<option value=2003>2003</option>
+			<option value=2004>2004</option>
+			<option value=2005>2005</option>
+			<option value=2006>2006</option>
+			<option value=2007>2007</option>
+			<option value=2008>2008</option>
+			<option value=2009>2009</option>
+			<option value=2010>2010</option>
+			<option value=2011>2011</option>
+			<option value=2012>2012</option>
+			<option value=2013>2013</option>
+			<option value=2014>2014</option>
+			<option value=2015>2015</option>
+			<option value=2016>2016</option>
+			<option value=2017>2017</option>
+	 	</select>
+
+
+	 	
+	  
+	  <p><button onclick="submit10()" type="button"  class="w3-btn w3-teal" >Analyze</button></p>
+	</form>
+</div>
+
+
+<!-- this is general_state form -->
+<div id="general_state" class="w3-display-container w3-container form" style="margin:0 auto;width:600px;height:300px;display:none">
+	<form class="w3-container w3-card-4">
+	
+	 
+	 <select id="general_state_type" class="w3-select w3-border" name="type">
+		<option value="" disabled selected>Type</option>
+		<option value="expenditure">EXPENDITURE</option>
+		<option value="price">PRICE</option>
+		<option value="production">PRODUCTION</option>
+		<option value="use">USE</option>
+	  </select>
+	  
+	  <p><label>amount</label>
+	  <input id="general_state_amount" class="w3-input w3-border" name="amount" type="number"></p>
+	  
+	  
+	  	<select id="general_state_year" class="w3-select w3-border" name="year1">
+			<option value="" disabled selected>year</option>
+			<option value=1970>1970</option>
+			<option value=1971>1971</option>
+			<option value=1972>1972</option>
+			<option value=1973>1973</option>
+			<option value=1974>1974</option>
+			<option value=1975>1975</option>
+			<option value=1976>1976</option>
+			<option value=1977>1977</option>
+			<option value=1978>1978</option>
+			<option value=1979>1979</option>
+			<option value=1980>1980</option>
+			<option value=1981>1981</option>
+			<option value=1982>1982</option>
+			<option value=1983>1983</option>
+			<option value=1984>1984</option>
+			<option value=1985>1985</option>
+			<option value=1986>1986</option>
+			<option value=1987>1987</option>
+			<option value=1988>1988</option>
+			<option value=1989>1989</option>
+			<option value=1990>1990</option>
+			<option value=1991>1991</option>
+			<option value=1992>1992</option>
+			<option value=1993>1993</option>
+			<option value=1994>1994</option>
+			<option value=1995>1995</option>
+			<option value=1996>1996</option>
+			<option value=1997>1997</option>
+			<option value=1998>1998</option>
+			<option value=1999>1999</option>
+			<option value=2000>2000</option>
+			<option value=2001>2001</option>
+			<option value=2002>2002</option>
+			<option value=2003>2003</option>
+			<option value=2004>2004</option>
+			<option value=2005>2005</option>
+			<option value=2006>2006</option>
+			<option value=2007>2007</option>
+			<option value=2008>2008</option>
+			<option value=2009>2009</option>
+			<option value=2010>2010</option>
+			<option value=2011>2011</option>
+			<option value=2012>2012</option>
+			<option value=2013>2013</option>
+			<option value=2014>2014</option>
+			<option value=2015>2015</option>
+			<option value=2016>2016</option>
+			<option value=2017>2017</option>
+	 	</select>
+
+
+	 	
+	  
+	  <p><button onclick="submit11()" type="button"  class="w3-btn w3-teal" >Analyze</button></p>
+	</form>
+</div>
+
+
+
+<!-- this is general_sector form -->
+<div id="general_sector" class="w3-display-container w3-container form" style="margin:0 auto;width:600px;height:300px;display:none">
+	<form class="w3-container w3-card-4">
+	
+	 
+	 <select id="general_sector_type" class="w3-select w3-border" name="type">
+		<option value="" disabled selected>Type</option>
+		<option value="expenditure">EXPENDITURE</option>
+		<option value="price">PRICE</option>
+		<option value="production">PRODUCTION</option>
+		<option value="use">USE</option>
+	  </select>
+	 
+	  
+	  <p><label>amount</label>
+	  <input id="general_sector_amount" class="w3-input w3-border" name="amount" type="number"></p>
+	  
+	  
+	  	<select id="general_sector_year" class="w3-select w3-border" name="year1">
+			<option value="" disabled selected>year</option>
+			<option value=1970>1970</option>
+			<option value=1971>1971</option>
+			<option value=1972>1972</option>
+			<option value=1973>1973</option>
+			<option value=1974>1974</option>
+			<option value=1975>1975</option>
+			<option value=1976>1976</option>
+			<option value=1977>1977</option>
+			<option value=1978>1978</option>
+			<option value=1979>1979</option>
+			<option value=1980>1980</option>
+			<option value=1981>1981</option>
+			<option value=1982>1982</option>
+			<option value=1983>1983</option>
+			<option value=1984>1984</option>
+			<option value=1985>1985</option>
+			<option value=1986>1986</option>
+			<option value=1987>1987</option>
+			<option value=1988>1988</option>
+			<option value=1989>1989</option>
+			<option value=1990>1990</option>
+			<option value=1991>1991</option>
+			<option value=1992>1992</option>
+			<option value=1993>1993</option>
+			<option value=1994>1994</option>
+			<option value=1995>1995</option>
+			<option value=1996>1996</option>
+			<option value=1997>1997</option>
+			<option value=1998>1998</option>
+			<option value=1999>1999</option>
+			<option value=2000>2000</option>
+			<option value=2001>2001</option>
+			<option value=2002>2002</option>
+			<option value=2003>2003</option>
+			<option value=2004>2004</option>
+			<option value=2005>2005</option>
+			<option value=2006>2006</option>
+			<option value=2007>2007</option>
+			<option value=2008>2008</option>
+			<option value=2009>2009</option>
+			<option value=2010>2010</option>
+			<option value=2011>2011</option>
+			<option value=2012>2012</option>
+			<option value=2013>2013</option>
+			<option value=2014>2014</option>
+			<option value=2015>2015</option>
+			<option value=2016>2016</option>
+			<option value=2017>2017</option>
+	 	</select>
+
+
+	 	
+	  
+	  <p><button onclick="submit12()" type="button"  class="w3-btn w3-teal" >Analyze</button></p>
+	</form>
+</div>
+
+
+<!-- this is prediction form -->
+<div id="prediction" class="w3-display-container w3-container form" style="margin:0 auto;width:600px;height:300px;display:none">
+	<form class="w3-container w3-card-4">
+	
+	 
+	 <select id="prediction_type" class="w3-select w3-border" name="type">
+		<option value="" disabled selected>Type</option>
+		<option value="expenditure">EXPENDITURE</option>
+		<option value="price">PRICE</option>
+		<option value="production">PRODUCTION</option>
+		<option value="use">USE</option>
+	  </select>
+	  
+	   <select id="prediction_state" class="w3-select w3-border" name="option">
+		<option value="" disabled selected>State</option>
+		<option value="ND">ND</option>
+		<option value="NM">NM</option>
+		<option value="NC">NC</option>
+		<option value="UT">UT</option>
+		<option value="RI">RI</option>
+		<option value="WA">WA</option>
+		<option value="TN">TN</option>
+		<option value="FL">FL</option>
+		<option value="CT">CT</option>
+		<option value="MD">MD</option>
+		<option value="MN">MN</option>
+		
+		<option value="MO">MO</option>
+		<option value="MT">MT</option>
+		<option value="OH">OH</option>
+		<option value="NV">NV</option>
+		<option value="AR">AR</option>
+		<option value="CO">CO</option>
+		<option value="AZ">AZ</option>
+		<option value="ID">ID </option>
+		<option value="MS">MS</option>
+		<option value="PA">PA</option>
+		
+		<option value="MA">MA</option>
+		<option value="KY">KY</option>
+		<option value="MI">MI</option>
+		<option value="NH">NH</option>
+		<option value="VA">VA</option>
+		<option value="SC">SC</option>
+		<option value="AK">AK</option>
+		<option value="DE">DE </option>
+		<option value="DC">DC</option>
+		<option value="ME">ME</option>
+		<option value="NE">NE</option>
+		
+		<option value="SD">SD</option>
+		<option value="VT">VT</option>
+		<option value="AL">AL</option>
+		<option value="HI">HI</option>
+		<option value="IL">IL</option>
+		<option value="WY">WY</option>
+		<option value="OR">OR</option>
+		<option value="WV">WV</option>
+		<option value="TX">TX</option>
+		<option value="NY">NY</option>
+		<option value="KS">KS</option>
+		
+		<option value="IN">IN</option>
+		<option value="NJ">NJ</option>
+		<option value="WI">WI</option>
+		<option value="OK">OK</option>
+		<option value="CA">CA</option>
+		<option value="IA">IA</option>
+		<option value="GA">GA</option>
+		<option value="LA">LA</option>
+	  </select>	
+	  
+	  <p><button onclick="submit13()" type="button"  class="w3-btn w3-teal" >Analyze</button></p>
+	</form>
+</div>
+
+<!-- this is difference form -->
+<div id="difference" class="w3-display-container w3-container form" style="margin:0 auto;width:600px;height:300px;display:none">
+	<form class="w3-container w3-card-4" >
+	 
+	 <select id="difference_type" class="w3-select w3-border" name="option">
+		<option value="" disabled selected>Type</option>
+		<option value="expenditure">EXPENDITURE</option>
+		<option value="price">PRICE</option>
+		<option value="production">PRODUCTION</option>
+		<option value="use">USE</option>
+	  </select>
+	  
+	  <select id="difference_state" class="w3-select w3-border" name="option">
+		<option value="" disabled selected>State</option>
+		<option value="ND">ND</option>
+		<option value="NM">NM</option>
+		<option value="NC">NC</option>
+		<option value="UT">UT</option>
+		<option value="RI">RI</option>
+		<option value="WA">WA</option>
+		<option value="TN">TN</option>
+		<option value="FL">FL</option>
+		<option value="CT">CT</option>
+		<option value="MD">MD</option>
+		<option value="MN">MN</option>
+		
+		<option value="MO">MO</option>
+		<option value="MT">MT</option>
+		<option value="OH">OH</option>
+		<option value="NV">NV</option>
+		<option value="AR">AR</option>
+		<option value="CO">CO</option>
+		<option value="AZ">AZ</option>
+		<option value="ID">ID </option>
+		<option value="MS">MS</option>
+		<option value="PA">PA</option>
+		
+		<option value="MA">MA</option>
+		<option value="KY">KY</option>
+		<option value="MI">MI</option>
+		<option value="NH">NH</option>
+		<option value="VA">VA</option>
+		<option value="SC">SC</option>
+		<option value="AK">AK</option>
+		<option value="DE">DE </option>
+		<option value="DC">DC</option>
+		<option value="ME">ME</option>
+		<option value="NE">NE</option>
+		
+		<option value="SD">SD</option>
+		<option value="VT">VT</option>
+		<option value="AL">AL</option>
+		<option value="HI">HI</option>
+		<option value="IL">IL</option>
+		<option value="WY">WY</option>
+		<option value="OR">OR</option>
+		<option value="WV">WV</option>
+		<option value="TX">TX</option>
+		<option value="NY">NY</option>
+		<option value="KS">KS</option>
+		
+		<option value="IN">IN</option>
+		<option value="NJ">NJ</option>
+		<option value="WI">WI</option>
+		<option value="OK">OK</option>
+		<option value="CA">CA</option>
+		<option value="IA">IA</option>
+		<option value="GA">GA</option>
+		<option value="LA">LA</option>
+	  </select>	
+	  
+	  <select id="difference_from" class="w3-select w3-border" name="year1" onChange="change('difference_from','difference_to')">
+			<option value="" disabled selected>from</option>
+			<option value=1970>1970</option>
+			<option value=1971>1971</option>
+			<option value=1972>1972</option>
+			<option value=1973>1973</option>
+			<option value=1974>1974</option>
+			<option value=1975>1975</option>
+			<option value=1976>1976</option>
+			<option value=1977>1977</option>
+			<option value=1978>1978</option>
+			<option value=1979>1979</option>
+			<option value=1980>1980</option>
+			<option value=1981>1981</option>
+			<option value=1982>1982</option>
+			<option value=1983>1983</option>
+			<option value=1984>1984</option>
+			<option value=1985>1985</option>
+			<option value=1986>1986</option>
+			<option value=1987>1987</option>
+			<option value=1988>1988</option>
+			<option value=1989>1989</option>
+			<option value=1990>1990</option>
+			<option value=1991>1991</option>
+			<option value=1992>1992</option>
+			<option value=1993>1993</option>
+			<option value=1994>1994</option>
+			<option value=1995>1995</option>
+			<option value=1996>1996</option>
+			<option value=1997>1997</option>
+			<option value=1998>1998</option>
+			<option value=1999>1999</option>
+			<option value=2000>2000</option>
+			<option value=2001>2001</option>
+			<option value=2002>2002</option>
+			<option value=2003>2003</option>
+			<option value=2004>2004</option>
+			<option value=2005>2005</option>
+			<option value=2006>2006</option>
+			<option value=2007>2007</option>
+			<option value=2008>2008</option>
+			<option value=2009>2009</option>
+			<option value=2010>2010</option>
+			<option value=2011>2011</option>
+			<option value=2012>2012</option>
+			<option value=2013>2013</option>
+			<option value=2014>2014</option>
+			<option value=2015>2015</option>
+			<option value=2016>2016</option>
+			<option value=2017>2017</option>
+	 	</select>
+
+
+	 	<select id="difference_to" class="w3-select w3-border" name="year2">
+			<option value="" disabled selected>to</option>
+			<option value=1970 disabled="true">1970</option>
+			<option value=1971 disabled="true">1971</option>
+			<option value=1972 disabled="true">1972</option>
+			<option value=1973 disabled="true">1973</option>
+			<option value=1974 disabled="true">1974</option>
+			<option value=1975 disabled="true">1975</option>
+			<option value=1976 disabled="true">1976</option>
+			<option value=1977 disabled="true">1977</option>
+			<option value=1978 disabled="true">1978</option>
+			<option value=1979 disabled="true">1979</option>
+			<option value=1980 disabled="true">1980</option>
+			<option value=1981 disabled="true">1981</option>
+			<option value=1982 disabled="true">1982</option>
+			<option value=1983 disabled="true">1983</option>
+			<option value=1984 disabled="true">1984</option>
+			<option value=1985 disabled="true">1985</option>
+			<option value=1986 disabled="true">1986</option>
+			<option value=1987 disabled="true">1987</option>
+			<option value=1988 disabled="true">1988</option>
+			<option value=1989 disabled="true">1989</option>
+			<option value=1990 disabled="true">1990</option>
+			<option value=1991 disabled="true">1991</option>
+			<option value=1992 disabled="true">1992</option>
+			<option value=1993 disabled="true">1993</option>
+			<option value=1994 disabled="true">1994</option>
+			<option value=1995 disabled="true" >1995</option>
+			<option value=1996 disabled="true">1996</option>
+			<option value=1997 disabled="true">1997</option>
+			<option value=1998 disabled="true">1998</option>
+			<option value=1999 disabled="true">1999</option>
+			<option value=2000 disabled="true">2000</option>
+			<option value=2001 disabled="true">2001</option>
+			<option value=2002 disabled="true">2002</option>
+			<option value=2003 disabled="true">2003</option>
+			<option value=2004 disabled="true">2004</option>
+			<option value=2005 disabled="true">2005</option>
+			<option value=2006 disabled="true">2006</option>
+			<option value=2007 disabled="true">2007</option>
+			<option value=2008 disabled="true">2008</option>
+			<option value=2009 disabled="true">2009</option>
+			<option value=2010 disabled="true">2010</option>
+			<option value=2011 disabled="true">2011</option>
+			<option value=2012 disabled="true">2012</option>
+			<option value=2013 disabled="true"d>2013</option>
+			<option value=2014 disabled="true">2014</option>
+			<option value=2015 disabled="true">2015</option>
+			<option value=2016 disabled="true">2016</option>
+			<option value=2017 disabled="true">2017</option>
+	 	</select>
+	  
+	  <p><button onclick="submit14()" type="button"  class="w3-btn w3-teal" >Analyze</button></p>
+	</form>
+</div>	
+
+<!-- this is usability form -->
+<div id="usability" class="w3-display-container w3-container form" style="margin:0 auto;width:600px;height:300px;display:none">
+	<form class="w3-container w3-card-4" >
+	 
+	 <select id="usability_type" class="w3-select w3-border" name="option">
+		<option value="" disabled selected>Type</option>
+		<option value="expenditure">EXPENDITURE</option>
+		<option value="price">PRICE</option>
+		<option value="production">PRODUCTION</option>
+		<option value="use">USE</option>
+	  </select>
+	  
+	  <select id="usability_sector" class="w3-select w3-border" name="option">
+		<option value="" disabled selected>Sector</option>
+		<option value="commercial sector">COMMERCIAL SECTOR</option>
+		<option value="electric power sector">ELECTRIC POWER SECTOR</option>
+		<option value="industrial sector">INDUSTRIAL SECTOR</option>
+		<option value="residential sector">RESIDENTIAL SECTOR</option>
+		<option value="transportation sector">TRANSPORTATION SECTOR</option>
+	  </select>
+	  
+	  <select id="usability_state" class="w3-select w3-border" name="option">
+		<option value="" disabled selected>State</option>
+		<option value="ND">ND</option>
+		<option value="NM">NM</option>
+		<option value="NC">NC</option>
+		<option value="UT">UT</option>
+		<option value="RI">RI</option>
+		<option value="WA">WA</option>
+		<option value="TN">TN</option>
+		<option value="FL">FL</option>
+		<option value="CT">CT</option>
+		<option value="MD">MD</option>
+		<option value="MN">MN</option>
+		
+		<option value="MO">MO</option>
+		<option value="MT">MT</option>
+		<option value="OH">OH</option>
+		<option value="NV">NV</option>
+		<option value="AR">AR</option>
+		<option value="CO">CO</option>
+		<option value="AZ">AZ</option>
+		<option value="ID">ID </option>
+		<option value="MS">MS</option>
+		<option value="PA">PA</option>
+		
+		<option value="MA">MA</option>
+		<option value="KY">KY</option>
+		<option value="MI">MI</option>
+		<option value="NH">NH</option>
+		<option value="VA">VA</option>
+		<option value="SC">SC</option>
+		<option value="AK">AK</option>
+		<option value="DE">DE </option>
+		<option value="DC">DC</option>
+		<option value="ME">ME</option>
+		<option value="NE">NE</option>
+		
+		<option value="SD">SD</option>
+		<option value="VT">VT</option>
+		<option value="AL">AL</option>
+		<option value="HI">HI</option>
+		<option value="IL">IL</option>
+		<option value="WY">WY</option>
+		<option value="OR">OR</option>
+		<option value="WV">WV</option>
+		<option value="TX">TX</option>
+		<option value="NY">NY</option>
+		<option value="KS">KS</option>
+		
+		<option value="IN">IN</option>
+		<option value="NJ">NJ</option>
+		<option value="WI">WI</option>
+		<option value="OK">OK</option>
+		<option value="CA">CA</option>
+		<option value="IA">IA</option>
+		<option value="GA">GA</option>
+		<option value="LA">LA</option>
+	  </select>	
+	  
+	  <select id="usability_from" class="w3-select w3-border" name="year1">
+			<option value="" disabled selected>from</option>
+			<option value=1970>1970</option>
+			<option value=1971>1971</option>
+			<option value=1972>1972</option>
+			<option value=1973>1973</option>
+			<option value=1974>1974</option>
+			<option value=1975>1975</option>
+			<option value=1976>1976</option>
+			<option value=1977>1977</option>
+			<option value=1978>1978</option>
+			<option value=1979>1979</option>
+			<option value=1980>1980</option>
+			<option value=1981>1981</option>
+			<option value=1982>1982</option>
+			<option value=1983>1983</option>
+			<option value=1984>1984</option>
+			<option value=1985>1985</option>
+			<option value=1986>1986</option>
+			<option value=1987>1987</option>
+			<option value=1988>1988</option>
+			<option value=1989>1989</option>
+			<option value=1990>1990</option>
+			<option value=1991>1991</option>
+			<option value=1992>1992</option>
+			<option value=1993>1993</option>
+			<option value=1994>1994</option>
+			<option value=1995>1995</option>
+			<option value=1996>1996</option>
+			<option value=1997>1997</option>
+			<option value=1998>1998</option>
+			<option value=1999>1999</option>
+			<option value=2000>2000</option>
+			<option value=2001>2001</option>
+			<option value=2002>2002</option>
+			<option value=2003>2003</option>
+			<option value=2004>2004</option>
+			<option value=2005>2005</option>
+			<option value=2006>2006</option>
+			<option value=2007>2007</option>
+			<option value=2008>2008</option>
+			<option value=2009>2009</option>
+			<option value=2010>2010</option>
+			<option value=2011>2011</option>
+			<option value=2012>2012</option>
+			<option value=2013>2013</option>
+			<option value=2014>2014</option>
+			<option value=2015>2015</option>
+			<option value=2016>2016</option>
+			<option value=2017>2017</option>
+	 	</select>
+
+	  
+	  <p><button onclick="submit15()" type="button"  class="w3-btn w3-teal" >Analyze</button></p>
+	</form>
+</div>	
+
+
+<!-- this is zero form -->
+<div id="zero" class="w3-display-container w3-container form" style="margin:0 auto;width:600px;height:300px;display:none">
+	<form class="w3-container w3-card-4" >
+	 
+	 <select id="zero_type" class="w3-select w3-border" name="option">
+		<option value="" disabled selected>Type</option>
+		<option value="expenditure">EXPENDITURE</option>
+		<option value="price">PRICE</option>
+		<option value="production">PRODUCTION</option>
+		<option value="use">USE</option>
+	  </select>
+	  
+	  <select id="zero_state" class="w3-select w3-border" name="option">
+		<option value="" disabled selected>State</option>
+		<option value="ND">ND</option>
+		<option value="NM">NM</option>
+		<option value="NC">NC</option>
+		<option value="UT">UT</option>
+		<option value="RI">RI</option>
+		<option value="WA">WA</option>
+		<option value="TN">TN</option>
+		<option value="FL">FL</option>
+		<option value="CT">CT</option>
+		<option value="MD">MD</option>
+		<option value="MN">MN</option>
+		
+		<option value="MO">MO</option>
+		<option value="MT">MT</option>
+		<option value="OH">OH</option>
+		<option value="NV">NV</option>
+		<option value="AR">AR</option>
+		<option value="CO">CO</option>
+		<option value="AZ">AZ</option>
+		<option value="ID">ID </option>
+		<option value="MS">MS</option>
+		<option value="PA">PA</option>
+		
+		<option value="MA">MA</option>
+		<option value="KY">KY</option>
+		<option value="MI">MI</option>
+		<option value="NH">NH</option>
+		<option value="VA">VA</option>
+		<option value="SC">SC</option>
+		<option value="AK">AK</option>
+		<option value="DE">DE </option>
+		<option value="DC">DC</option>
+		<option value="ME">ME</option>
+		<option value="NE">NE</option>
+		
+		<option value="SD">SD</option>
+		<option value="VT">VT</option>
+		<option value="AL">AL</option>
+		<option value="HI">HI</option>
+		<option value="IL">IL</option>
+		<option value="WY">WY</option>
+		<option value="OR">OR</option>
+		<option value="WV">WV</option>
+		<option value="TX">TX</option>
+		<option value="NY">NY</option>
+		<option value="KS">KS</option>
+		
+		<option value="IN">IN</option>
+		<option value="NJ">NJ</option>
+		<option value="WI">WI</option>
+		<option value="OK">OK</option>
+		<option value="CA">CA</option>
+		<option value="IA">IA</option>
+		<option value="GA">GA</option>
+		<option value="LA">LA</option>
+	  </select>	
+	  
+	  <select id="zero_from" class="w3-select w3-border" name="year1" onChange="change('zero_from','zero_to')">
+			<option value="" disabled selected>from</option>
+			<option value=1970>1970</option>
+			<option value=1971>1971</option>
+			<option value=1972>1972</option>
+			<option value=1973>1973</option>
+			<option value=1974>1974</option>
+			<option value=1975>1975</option>
+			<option value=1976>1976</option>
+			<option value=1977>1977</option>
+			<option value=1978>1978</option>
+			<option value=1979>1979</option>
+			<option value=1980>1980</option>
+			<option value=1981>1981</option>
+			<option value=1982>1982</option>
+			<option value=1983>1983</option>
+			<option value=1984>1984</option>
+			<option value=1985>1985</option>
+			<option value=1986>1986</option>
+			<option value=1987>1987</option>
+			<option value=1988>1988</option>
+			<option value=1989>1989</option>
+			<option value=1990>1990</option>
+			<option value=1991>1991</option>
+			<option value=1992>1992</option>
+			<option value=1993>1993</option>
+			<option value=1994>1994</option>
+			<option value=1995>1995</option>
+			<option value=1996>1996</option>
+			<option value=1997>1997</option>
+			<option value=1998>1998</option>
+			<option value=1999>1999</option>
+			<option value=2000>2000</option>
+			<option value=2001>2001</option>
+			<option value=2002>2002</option>
+			<option value=2003>2003</option>
+			<option value=2004>2004</option>
+			<option value=2005>2005</option>
+			<option value=2006>2006</option>
+			<option value=2007>2007</option>
+			<option value=2008>2008</option>
+			<option value=2009>2009</option>
+			<option value=2010>2010</option>
+			<option value=2011>2011</option>
+			<option value=2012>2012</option>
+			<option value=2013>2013</option>
+			<option value=2014>2014</option>
+			<option value=2015>2015</option>
+			<option value=2016>2016</option>
+			<option value=2017>2017</option>
+	 	</select>
+
+
+	 	<select id="zero_to" class="w3-select w3-border" name="year2">
+			<option value="" disabled selected>to</option>
+			<option value=1970 disabled="true">1970</option>
+			<option value=1971 disabled="true">1971</option>
+			<option value=1972 disabled="true">1972</option>
+			<option value=1973 disabled="true">1973</option>
+			<option value=1974 disabled="true">1974</option>
+			<option value=1975 disabled="true">1975</option>
+			<option value=1976 disabled="true">1976</option>
+			<option value=1977 disabled="true">1977</option>
+			<option value=1978 disabled="true">1978</option>
+			<option value=1979 disabled="true">1979</option>
+			<option value=1980 disabled="true">1980</option>
+			<option value=1981 disabled="true">1981</option>
+			<option value=1982 disabled="true">1982</option>
+			<option value=1983 disabled="true">1983</option>
+			<option value=1984 disabled="true">1984</option>
+			<option value=1985 disabled="true">1985</option>
+			<option value=1986 disabled="true">1986</option>
+			<option value=1987 disabled="true">1987</option>
+			<option value=1988 disabled="true">1988</option>
+			<option value=1989 disabled="true">1989</option>
+			<option value=1990 disabled="true">1990</option>
+			<option value=1991 disabled="true">1991</option>
+			<option value=1992 disabled="true">1992</option>
+			<option value=1993 disabled="true">1993</option>
+			<option value=1994 disabled="true">1994</option>
+			<option value=1995 disabled="true" >1995</option>
+			<option value=1996 disabled="true">1996</option>
+			<option value=1997 disabled="true">1997</option>
+			<option value=1998 disabled="true">1998</option>
+			<option value=1999 disabled="true">1999</option>
+			<option value=2000 disabled="true">2000</option>
+			<option value=2001 disabled="true">2001</option>
+			<option value=2002 disabled="true">2002</option>
+			<option value=2003 disabled="true">2003</option>
+			<option value=2004 disabled="true">2004</option>
+			<option value=2005 disabled="true">2005</option>
+			<option value=2006 disabled="true">2006</option>
+			<option value=2007 disabled="true">2007</option>
+			<option value=2008 disabled="true">2008</option>
+			<option value=2009 disabled="true">2009</option>
+			<option value=2010 disabled="true">2010</option>
+			<option value=2011 disabled="true">2011</option>
+			<option value=2012 disabled="true">2012</option>
+			<option value=2013 disabled="true"d>2013</option>
+			<option value=2014 disabled="true">2014</option>
+			<option value=2015 disabled="true">2015</option>
+			<option value=2016 disabled="true">2016</option>
+			<option value=2017 disabled="true">2017</option>
+	 	</select>
+	  
+
+	  
+	  <p><button onclick="submit16()" type="button"  class="w3-btn w3-teal" >Analyze</button></p>
+	</form>
+</div>	
+
+
+
+
+
+
+<div id="image1" class="w3-display-container w3-container" style="margin-left:600px;margin-top:0px">
+        <img src="image/Usa_map.png"  alt="phone" style="width:40%">
+        </div>
+
+<script>
+	function submit1(){
+	var type = document.getElementById("extremum_type").value;
+	var yearfrom = document.getElementById("extremum_from").value;
+	var yearto = document.getElementById("extremum_to").value;
+//	$("#table1 tbody").html("");
+//	$("#table1 thead").html("");
+	$.ajax({
+
+            type:"post",
+			data:{"type":type,"yearfrom":yearfrom,"yearto":yearto},
+
+            url:"extremum.php",
+			
+
+            dataType:"json",
+
+            success:function (data) {
+			
+				//document.getElementById("table1").style.display = "block";
+				document.getElementById("extremum").style.display = "none";
+				document.getElementById("image1").style.display = "none";
+				document.getElementById("container").style.display = "block";
+				action4(data["xname"], data["data"]);
+				
+
+            },
+
+        })
+	}
+	
+	function submit2(){
+	var type = document.getElementById("similarity_type").value;
+	var state1 = document.getElementById("similarity_state1").value;
+	var state2 = document.getElementById("similarity_state2").value;
+	var yearfrom = document.getElementById("similarity_from").value;
+	var yearto = document.getElementById("similarity_to").value;
+//	$("#table1 tbody").html("");
+//	$("#table1 thead").html("");
+	$.ajax({
+
+            type:"post",
+
+            url:"similarity.php",
+			
+			data:{"type":type,"state1":state1,"state2":state2,"yearfrom":yearfrom,"yearto":yearto},
+
+            dataType:"json",
+
+            success:function (data) {
+			
+//				document.getElementById("table1").style.display = "block";
+				document.getElementById("similarity").style.display = "none";
+				document.getElementById("image1").style.display = "none";
+				document.getElementById("container").style.display = "block";
+				action5(data["xname"], data["data"]);
+				
+			
+
+            },
+
+        })
+	}
+	
+	
+	function submit3(){
+	var state = document.getElementById("balance_state_state").value;
+	var type = document.getElementById("balance_state_type").value;
+	var yearfrom = document.getElementById("balance_state_from").value;
+	var yearto = document.getElementById("balance_state_to").value;
+//	$("#table1 tbody").html("");
+//	$("#table1 thead").html("");
+	$.ajax({
+
+            type:"post",
+
+            url:"balance_state.php",
+			
+			data:{"state":state,"type":type,"yearfrom":yearfrom,"yearto":yearto},
+
+            dataType:"json",
+
+            success:function (data) {
+			
+				//document.getElementById("table1").style.display = "block";
+				document.getElementById("balance_state").style.display = "none";
+				document.getElementById("image1").style.display = "none";
+				document.getElementById("container").style.display = "block";
+				action6(data["data"]);
+				
+
+            },
+
+        })
+	}
+	
+	
+	function submit4(){
+	var state = document.getElementById("balance_sector_state").value;
+	var type = document.getElementById("balance_sector_type").value;
+	var sector = document.getElementById("balance_sector_sector").value;
+	var yearfrom = document.getElementById("balance_sector_from").value;
+	var yearto = document.getElementById("balance_sector_to").value;
+//	$("#table1 tbody").html("");
+//	$("#table1 thead").html("");
+	$.ajax({
+
+            type:"post",
+
+            url:"balance_sector.php",
+			
+			data:{"state":state,"type":type,"sector":sector,"yearfrom":yearfrom,"yearto":yearto},
+
+            dataType:"json",
+
+            success:function (data) {
+			
+//				document.getElementById("table1").style.display = "block";
+				document.getElementById("balance_sector").style.display = "none";
+				document.getElementById("image1").style.display = "none";
+				document.getElementById("container").style.display = "block";
+				action6(data["data"]);
+
+            },
+
+        })
+	}
+	
+	
+	
+	function submit5(){
+	var state = document.getElementById("average_sector_state").value;
+	var type = document.getElementById("average_state_type").value;
+	var yearfrom = document.getElementById("average_state_from").value;
+	var yearto = document.getElementById("average_state_to").value;
+	$("#table1 tbody").html("");
+	$("#table1 thead").html("");
+	$.ajax({
+
+            type:"post",
+
+            url:"average.php",
+			
+			data:{"state":state,"type":type,"yearfrom":yearfrom,"yearto":yearto},
+
+            dataType:"json",
+
+            success:function (data) {
+			
+				document.getElementById("table1").style.display = "block";
+				document.getElementById("average_state").style.display = "none";
+				document.getElementById("image1").style.display = "none";
+				
+				$("#head").append(
+
+                            "<tr><td>"+"name"+"</td>"
+							
+                            +"<td>"+"value"+"</td></tr>"
+
+
+                        );
+				
+                $(data).each(
+
+                    function (i, values) {
+
+                        $("#list").append(
+
+                            "<tr><td>"+values.NAME+"</td>"
+
+                            +"<td>"+values.MINVALUE+"</td></tr>"
+
+
+                        );
+
+ 
+
+                    }
+
+                );
+
+            },
+
+        })
+	}
+	
+	
+	function submit6(){
+	var type = document.getElementById("reduction_type").value;
+	var yearfrom = document.getElementById("reduction_from").value;
+	var yearto = document.getElementById("reduction_to").value;
+	$("#table1 tbody").html("");
+	$("#table1 thead").html("");
+	$.ajax({
+
+            type:"post",
+
+            url:"reduction.php",
+			
+			data:{"type":type,"yearfrom":yearfrom,"yearto":yearto},
+
+            dataType:"json",
+
+            success:function (data) {
+			
+				document.getElementById("table1").style.display = "block";
+				document.getElementById("reduction").style.display = "none";
+				document.getElementById("image1").style.display = "none";
+				
+				$("#head").append(
+
+                            "<tr><td>"+"state"+"</td>"
+							
+                            +"<td>"+"difference"+"</td></tr>"
+
+
+                        );
+				
+                $(data).each(
+
+                    function (i, values) {
+
+                        $("#list").append(
+
+                            "<tr><td>"+values.STATE+"</td>"
+
+                            +"<td>"+values.DIFFERENCE+"</td></tr>"
+
+
+                        );
+
+ 
+
+                    }
+
+                );
+
+            },
+
+        })
+	}
+	
+	
+	function submit7(){
+	var state = document.getElementById("average_sector_state").value;
+	var type = document.getElementById("average_sector_type").value;
+	var yearfrom = document.getElementById("average_sector_from").value;
+	var yearto = document.getElementById("average_sector_to").value;
+	$("#table1 tbody").html("");
+	$("#table1 thead").html("");
+	$.ajax({
+
+            type:"post",
+
+            url:"average.php",
+			
+			data:{"state":state,"type":type,"yearfrom":yearfrom,"yearto":yearto},
+
+            dataType:"json",
+
+            success:function (data) {
+			
+				document.getElementById("table1").style.display = "block";
+				document.getElementById("average_sector").style.display = "none";
+				document.getElementById("image1").style.display = "none";
+				
+				$("#head").append(
+
+                            "<tr><td>"+"name"+"</td>"
+							
+                            +"<td>"+"value"+"</td></tr>"
+
+
+                        );
+				
+                $(data).each(
+
+                    function (i, values) {
+
+                        $("#list").append(
+
+                            "<tr><td>"+values.NAME+"</td>"
+
+                            +"<td>"+values.MINVALUE+"</td></tr>"
+
+
+                        );
+
+ 
+
+                    }
+
+                );
+
+            },
+
+        })
+	}
+	
+	
+	function submit8(){
+	var state = document.getElementById("total_state_state").value;
+	var type = document.getElementById("total_state_type").value;
+	var sector = document.getElementById("total_sector_sector").value;
+	var year = document.getElementById("total_state_year").value;
+	$("#table1 tbody").html("");
+	$("#table1 thead").html("");
+	$.ajax({
+
+            type:"post",
+
+            url:"total.php",
+			
+			data:{"state":state,"type":type, "sector":sector,"year":year},
+
+            dataType:"json",
+
+            success:function (data) {
+			
+				document.getElementById("table1").style.display = "block";
+				document.getElementById("total_state").style.display = "none";
+				document.getElementById("image1").style.display = "none";
+				
+				$("#head").append(
+
+                            "<tr><td>"+"name"+"</td>"
+							
+                            +"<td>"+"total"+"</td></tr>"
+
+
+                        );
+				
+                $(data).each(
+
+                    function (i, values) {
+
+                        $("#list").append(
+
+                            "<tr><td>"+values.NAME+"</td>"
+
+                            +"<td>"+values.TOTAL+"</td></tr>"
+
+
+                        );
+
+ 
+
+                    }
+
+                );
+
+            },
+
+        })
+	}
+	
+	
+	function submit9(){
+	var state = document.getElementById("total_sector_state").value;
+	var type = document.getElementById("total_sector_type").value;
+	var sector = document.getElementById("total_sector_sector").value;
+	var year = document.getElementById("total_sector_year").value;
+	$("#table1 tbody").html("");
+	$("#table1 thead").html("");
+	$.ajax({
+
+            type:"post",
+
+            url:"total.php",
+			
+			data:{"state":state,"type":type,"sector":sector,"year":year},
+
+            dataType:"json",
+
+            success:function (data) {
+			
+				document.getElementById("table1").style.display = "block";
+				document.getElementById("total_sector").style.display = "none";
+				document.getElementById("image1").style.display = "none";
+				
+				$("#head").append(
+
+                            "<tr><td>"+"name"+"</td>"
+							
+                            +"<td>"+"total"+"</td></tr>"
+
+
+                        );
+				
+                $(data).each(
+
+                    function (i, values) {
+
+                        $("#list").append(
+
+                            "<tr><td>"+values.NAME+"</td>"
+
+                            +"<td>"+values.TOTAL+"</td></tr>"
+
+
+                        );
+
+ 
+
+                    }
+
+                );
+
+            },
+
+        })
+	}
+	
+	
+	function submit10(){
+	var type = document.getElementById("univerality_type").value;
+	var amount = document.getElementById("univerality_amount").value;
+	var number = document.getElementById("univerality_number").value;
+	var year = document.getElementById("univerality_year").value;
+//	$("#table1 tbody").html("");
+//	$("#table1 thead").html("");
+	$.ajax({
+
+            type:"post",
+
+            url:"univerality.php",
+			
+			data:{"type":type,"amount":amount,"number":number,"year":year},
+
+            dataType:"json",
+
+            success:function (data) {
+			
+//				document.getElementById("table1").style.display = "block";
+				document.getElementById("univerality").style.display = "none";
+				document.getElementById("image1").style.display = "none";
+			    document.getElementById("container").style.display = "block";
+				action7(data["xname"], data["data"]);
+				
+                
+
+            },
+
+        })
+	}
+	
+	
+	
+function submit11(){
+	var year = document.getElementById("general_state_year").value;
+	var amount = document.getElementById("general_state_amount").value;
+	var type = document.getElementById("general_state_type").value;
+	
+	$("#table1 tbody").html("");
+	$("#table1 thead").html("");
+	$.ajax({
+
+            type:"post",
+
+            url:"general1.php",
+			
+			data:{"year":year,"amount":amount,"type":type},
+
+            dataType:"json",
+
+            success:function (data) {
+			
+				document.getElementById("table1").style.display = "block";
+				document.getElementById("general_state").style.display = "none";
+				document.getElementById("image1").style.display = "none";
+				
+				$("#head").append(
+
+                            "<tr><td>"+"energy"+"</td></tr>"
+						
+
+
+                        );
+				
+                $(data).each(
+
+                    function (i, values) {
+
+                        $("#list").append(
+
+                            "<tr><td>"+values.ENERGY+"</td></tr>"
+
+
+
+                        );
+
+ 
+
+                    }
+
+                );
+
+            },
+
+        })
+	}
+	
+	
+	function submit12(){
+	var year = document.getElementById("general_sector_year").value;
+	var amount = document.getElementById("general_sector_amount").value;
+	var type = document.getElementById("general_sector_type").value;
+	
+	$("#table1 tbody").html("");
+	$("#table1 thead").html("");
+	$.ajax({
+
+            type:"post",
+
+            url:"general2.php",
+			
+			data:{"year":year,"amount":amount,"type":type},
+
+            dataType:"json",
+
+            success:function (data) {
+			
+				document.getElementById("table1").style.display = "block";
+				document.getElementById("general_sector").style.display = "none";
+				document.getElementById("image1").style.display = "none";
+				
+				$("#head").append(
+
+                            "<tr><td>"+"energy"+"</td></tr>"
+						
+
+
+                        );
+				
+                $(data).each(
+
+                    function (i, values) {
+
+                        $("#list").append(
+
+                            "<tr><td>"+values.ENERGY+"</td></tr>"
+
+
+
+                        );
+
+ 
+
+                    }
+
+                );
+
+            },
+
+        })
+	}
+	
+	
+	
+	function submit13(){
+	var state = document.getElementById("prediction_state").value;
+	var type = document.getElementById("prediction_type").value;
+	
+	//$("#table1 tbody").html("");
+	//$("#table1 thead").html("");
+	$.ajax({
+
+            type:"post",
+
+            url:"prediction.php",
+			
+			data:{"state":state,"type":type},
+
+            dataType:"json",
+
+            success:function (data) {
+			
+				//document.getElementById("table1").style.display = "block";
+				document.getElementById("prediction").style.display = "none";
+				document.getElementById("image1").style.display = "none";
+				document.getElementById("container").style.display = "block";
+				var receive = data;
+				action(data);
+				
+				
+               
+
+            },
+
+        })
+	}
+	
+	function submit14(){
+	var state = document.getElementById("difference_state").value;
+	var type = document.getElementById("difference_type").value;
+	var yearfrom = document.getElementById("difference_from").value;
+	var yearto = document.getElementById("difference_to").value;
+//	$("#table1 tbody").html("");
+//	$("#table1 thead").html("");
+	$.ajax({
+
+            type:"post",
+
+            url:"difference.php",
+			
+			data:{"state":state,"type":type,"yearfrom":yearfrom,"yearto":yearto},
+
+            dataType:"json",
+
+            success:function (data) {
+				//document.getElementById("table1").style.display = "block";
+				document.getElementById("difference").style.display = "none";
+				document.getElementById("image1").style.display = "none";
+				document.getElementById("container").style.display = "block";
+				action1(data["xname"], data["data"]);
+
+            },
+
+        })
+	}
+	
+	function submit15(){
+	var state = document.getElementById("usability_state").value;
+	var type = document.getElementById("usability_type").value;
+	var year = document.getElementById("usability_from").value;
+	var sector = document.getElementById("usability_sector").value;
+//	$("#table1 tbody").html("");
+//	$("#table1 thead").html("");
+	$.ajax({
+
+            type:"post",
+
+            url:"usability.php",
+			
+			data:{"state":state,"type":type,"year":year,"sector":sector},
+
+            dataType:"json",
+
+            success:function (data) {
+			
+				//document.getElementById("table1").style.display = "block";
+				document.getElementById("usability").style.display = "none";
+				document.getElementById("image1").style.display = "none";
+				document.getElementById("container").style.display = "block";
+				action3(data["data"]);
+				
+				
+                
+
+            },
+
+        })
+	}
+	
+	
+	function submit16(){
+	var state = document.getElementById("zero_state").value;
+	var type = document.getElementById("zero_type").value;
+	var yearfrom = document.getElementById("zero_from").value;
+	var yearto = document.getElementById("zero_to").value;
+//	$("#table1 tbody").html("");
+//	$("#table1 thead").html("");
+	$.ajax({
+
+            type:"post",
+
+            url:"zero.php",
+			
+			data:{"state":state,"type":type,"yearfrom":yearfrom,"yearto":yearto},
+
+            dataType:"json",
+
+            success:function (data) {
+			
+				//document.getElementById("table1").style.display = "block";
+				document.getElementById("zero").style.display = "none";
+				document.getElementById("image1").style.display = "none";
+				document.getElementById("container").style.display = "block";
+				action2(data["xname"], data["data"]);
+				
+				
+				
+              
+
+            },
+
+        })
+	}
+	
+	
+	function action(data) {
+   var title = {
+      text: 'Energy Cost'   
+   };
+   var subtitle = {
+      text: ''
+   };
+   var xAxis = {
+      categories: ['2018', '2019', '2020', '2021', '2022']
+   };
+   var yAxis = {
+      title: {
+         text: 'Amount'
+      },
+      plotLines: [{
+         value: 0,
+         width: 1,
+         color: '#808080'
+      }]
+   };   
+
+   var tooltip = {
+      valueSuffix: 'ton'
+   }
+
+   var legend = {
+      layout: 'vertical',
+      align: 'right',
+      verticalAlign: 'middle',
+      borderWidth: 0
+   };
+   
+   var series =  [
+     
+   ];
+   series[0] =  data;
+
+   var json = {};
+
+   json.title = title;
+   json.subtitle = subtitle;
+   json.xAxis = xAxis;
+   json.yAxis = yAxis;
+   json.tooltip = tooltip;
+   json.legend = legend;
+   json.series = series;
+
+   $('#container').highcharts(json);
+}
+
+function action1(xname, data) {
+   var title = {
+      text: 'Energy Cost'   
+   };
+   var subtitle = {
+      text: ''
+   };
+   var xAxis = {
+
+   };
+   var yAxis = {
+      title: {
+         text: 'Amount'
+      },
+      plotLines: [{
+         value: 0,
+         width: 1,
+         color: '#808080'
+      }]
+   };   
+
+   var tooltip = {
+      valueSuffix: 'ton'
+   }
+
+   var legend = {
+      layout: 'vertical',
+      align: 'right',
+      verticalAlign: 'middle',
+      borderWidth: 0
+   };
+
+   
+   var series =  [
+     
+   ];
+   var result={};
+   result["name"]="difference";
+   result["data"]=data;
+   series[0] = result;
+   xAxis["categories"]=xname;
+   var json = {};
+
+   json.title = title;
+   json.subtitle = subtitle;
+   json.xAxis = xAxis;
+   json.yAxis = yAxis;
+   json.tooltip = tooltip;
+   json.legend = legend;
+   json.series = series;
+
+   $('#container').highcharts(json);
+}
+
+
+function action2(xname, data) {
+  var chart = {
+      type: 'column'
+   };
+   var title = {
+      text: 'Zero amount energy number'   
+   };
+   var subtitle = {
+      text: ''  
+   };
+   var xAxis = {
+      crosshair: true
+   };
+   var yAxis = {
+      min: 0,
+      title: {
+         text: 'num'         
+      }      
+   };
+   var tooltip = {
+      headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+      pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+         '<td style="padding:0"><b>{point.y:.1f} mm</b></td></tr>',
+      footerFormat: '</table>',
+      shared: true,
+      useHTML: true
+   };
+   var plotOptions = {
+      column: {
+         pointPadding: 0.2,
+         borderWidth: 0
+      }
+   };  
+   var credits = {
+      enabled: false
+   };
+   
+   var series= [];     
+   var result={};
+   result["name"]="zero energy";
+   result["data"]=data;
+   series[0] = result;
+      
+   xAxis["categories"]=xname;	 
+   var json = {};   
+   json.chart = chart; 
+   json.title = title;   
+   json.subtitle = subtitle; 
+   json.tooltip = tooltip;
+   json.xAxis = xAxis;
+   json.yAxis = yAxis;  
+   json.series = series;
+   json.plotOptions = plotOptions;  
+   json.credits = credits;
+   $('#container').highcharts(json);
+}
+
+
+function action3(data) {
+   var chart = {
+       plotBackgroundColor: null,
+       plotBorderWidth: null,
+       plotShadow: false
+   };
+   var title = {
+      text: 'usability of energy'   
+   };      
+   var tooltip = {
+      pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+   };
+   var plotOptions = {
+      pie: {
+         allowPointSelect: true,
+         cursor: 'pointer',
+         dataLabels: {
+            enabled: true,
+            format: '<b>{point.name}%</b>: {point.percentage:.1f} %',
+            style: {
+               color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+            }
+         }
+      }
+   };
+  /* var series= [{
+      type: 'pie',
+      name: 'Browser share',
+      data: [
+         ['Firefox',   45.0],
+         ['IE',       26.8],
+         ['x',       12.8],
+         ['Safari',    8.5],
+         ['Opera',     6.2],
+         ['Others',   0.7]
+      ]
+   }];   */  
+   var series= [];     
+   var result={};
+   result["type"]="pie";
+   result["name"]="Browser share";
+   result["data"]=data;
+   series[0] = result;
+   var json = {};   
+   json.chart = chart; 
+   json.title = title;     
+   json.tooltip = tooltip;  
+   json.series = series;
+   json.plotOptions = plotOptions;
+   $('#container').highcharts(json);  
+}
+
+
+function action4(xname, data) {
+  var chart = {
+      type: 'column'
+   };
+   var title = {
+      text: 'extremum'   
+   };
+   var subtitle = {
+      text: ''  
+   };
+   var xAxis = {
+      crosshair: true
+   };
+   var yAxis = {
+      min: 0,
+      title: {
+         text: 'num'         
+      }      
+   };
+   var tooltip = {
+      headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+      pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+         '<td style="padding:0"><b>{point.y:.1f} num</b></td></tr>',
+      footerFormat: '</table>',
+      shared: true,
+      useHTML: true
+   };
+   var plotOptions = {
+      column: {
+         pointPadding: 0.2,
+         borderWidth: 0
+      }
+   };  
+   var credits = {
+      enabled: false
+   };
+   
+   var series= [];     
+   var result={};
+   result["name"]="max and min value";
+   result["data"]=data;
+   series[0] = result;
+      
+   xAxis["categories"]=xname;	 
+   var json = {};   
+   json.chart = chart; 
+   json.title = title;   
+   json.subtitle = subtitle; 
+   json.tooltip = tooltip;
+   json.xAxis = xAxis;
+   json.yAxis = yAxis;  
+   json.series = series;
+   json.plotOptions = plotOptions;  
+   json.credits = credits;
+   $('#container').highcharts(json);
+}
+	
+	
+	function action5(xname, data) {
+  var chart = {
+      type: 'column'
+   };
+   var title = {
+      text: 'similarity'   
+   };
+   var subtitle = {
+      text: ''  
+   };
+   var xAxis = {
+      crosshair: true
+   };
+   var yAxis = {
+      min: 0,
+      title: {
+         text: 'num'         
+      }      
+   };
+   var tooltip = {
+      headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+      pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+         '<td style="padding:0"><b>{point.y:.1f} num</b></td></tr>',
+      footerFormat: '</table>',
+      shared: true,
+      useHTML: true
+   };
+   var plotOptions = {
+      column: {
+         pointPadding: 0.2,
+         borderWidth: 0
+      }
+   };  
+   var credits = {
+      enabled: false
+   };
+   
+   var series= [];     
+   var result={};
+   result["name"]="similarity";
+   result["data"]=data;
+   series[0] = result;
+      
+   xAxis["categories"]=xname;	 
+   var json = {};   
+   json.chart = chart; 
+   json.title = title;   
+   json.subtitle = subtitle; 
+   json.tooltip = tooltip;
+   json.xAxis = xAxis;
+   json.yAxis = yAxis;  
+   json.series = series;
+   json.plotOptions = plotOptions;  
+   json.credits = credits;
+   $('#container').highcharts(json);
+}
+	
+function action6(data) {
+   var chart = {
+       plotBackgroundColor: null,
+       plotBorderWidth: null,
+       plotShadow: false
+   };
+   var title = {
+      text: 'balance_state'   
+   };      
+   var tooltip = {
+      pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+   };
+   var plotOptions = {
+      pie: {
+         allowPointSelect: true,
+         cursor: 'pointer',
+         dataLabels: {
+            enabled: true,
+            format: '<b>{point.name}%</b>: {point.percentage:.1f} %',
+            style: {
+               color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+            }
+         }
+      }
+   };
+  /* var series= [{
+      type: 'pie',
+      name: 'Browser share',
+      data: [
+         ['Firefox',   45.0],
+         ['IE',       26.8],
+         ['x',       12.8],
+         ['Safari',    8.5],
+         ['Opera',     6.2],
+         ['Others',   0.7]
+      ]
+   }];   */  
+   var series= [];     
+   var result={};
+   result["type"]="pie";
+   result["name"]="Browser share";
+   result["data"]=data;
+   series[0] = result;
+   var json = {};   
+   json.chart = chart; 
+   json.title = title;     
+   json.tooltip = tooltip;  
+   json.series = series;
+   json.plotOptions = plotOptions;
+   $('#container').highcharts(json);  
+}
+
+function action7(xname, data){
+	
+	var chart = {
+      type: 'bar'
+   };
+   var title = {
+      text: ''   
+   };
+   var subtitle = {
+      text: 'Source: Wikipedia.org'  
+   };
+   var xAxis = {
+      title: {
+         text: null
+      }
+   };
+   var yAxis = {
+      min: 0,
+      title: {
+         text: 'number (num)',
+         align: 'high'
+      },
+      labels: {
+         overflow: 'justify'
+      }
+   };
+   var tooltip = {
+      valueSuffix: ' millions'
+   };
+   var plotOptions = {
+      bar: {
+         dataLabels: {
+            enabled: true
+         }
+      }
+   };
+   var legend = {
+      layout: 'vertical',
+      align: 'right',
+      verticalAlign: 'top',
+      x: -40,
+      y: 100,
+      floating: true,
+      borderWidth: 1,
+      backgroundColor: ((Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF'),
+      shadow: true
+   };
+   var credits = {
+      enabled: false
+   };
+   
+  /* var series= [{
+         name: 'Year 1800',
+            data: [107, 31, 635, 203, 2]
+        }
+   ];   */  
+      
+   var series= [];     
+   var result={};
+   result["name"]="number";
+   result["data"]=data;
+   series[0] = result;
+      
+   xAxis["categories"]=xname;	 
+   var json = {};   
+   json.chart = chart; 
+   json.title = title;   
+   json.subtitle = subtitle; 
+   json.tooltip = tooltip;
+   json.xAxis = xAxis;
+   json.yAxis = yAxis;  
+   json.series = series;
+   json.plotOptions = plotOptions;
+   json.legend = legend;
+   json.credits = credits;
+   $('#container').highcharts(json);
+
+}
+	
+    function myAccFunc(name) {
+		document.getElementById("table1").style.display = "none";
+		document.getElementById("container").style.display = "none";
+        var x = document.getElementById(name);
+        if (x.className.indexOf("w3-show") == -1) {
+            x.className += " w3-show";
+        } else {
+            x.className = x.className.replace(" w3-show", "");
+        }
+    }
+	
+	function openCity(cityName) {
+		var i;
+		var x = document.getElementsByClassName("form");
+		for (i = 0; i < x.length; i++) {
+			x[i].style.display = "none";  
+		}
+		document.getElementById("container").style.display = "none";
+		document.getElementById("table1").style.display = "none";
+		document.getElementById(cityName).style.display = "block";  
+	}
+	
+	function change_state(state1, state2){
+	   
+	   var x = document.getElementById(state1);
+	   var y = document.getElementById(state2);
+	   for (var j = 0; j<y.length; j++){
+	   		y[j].disabled = false;
+	   }
+	   y[x.selectedIndex].disabled = true;
+	   
+	}
+	
+	function change(from, to)
+	{
+	   var x = document.getElementById(from);
+	   var y = document.getElementById(to);
+	   for (var j = 0; j<y.length; j++){
+	   		y[j].disabled = true;
+	   }
+	   for (var i = x.selectedIndex;i < y.length;i++){
+	   	  y[i].disabled = false;
+	   }
+	   y.selectedIndex = x.selectedIndex;
+
+	}
+	
+	
+</script>
+
+</body>
+</html>

@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<html>
+<title>admini_index</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script   src="https://code.jquery.com/jquery-3.2.1.js"   integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="   crossorigin="anonymous"></script>
+<style>
+    .w3-sidebar a {font-family: "Roboto", sans-serif}
+    body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
+</style>
+<body class="w3-content" style="max-width:1200px">
+
+<nav class="w3-sidebar w3-bar-block w3-white w3-collapse w3-top" style="z-index:3;width:250px" id="mySidebar">
+    <div class="w3-container w3-display-container w3-padding-16">
+        <i onclick="w3_close()" class="fa fa-remove w3-hide-large w3-button w3-display-topright"></i>
+        <h3 class="w3-wide"><b><font color="rgb(4, 123, 213)">Resource profile</b></h3></font>
+    </div>
+    <div class="w3-padding-64 w3-large w3-text-grey" style="font-weight:bold">
+        <a class="w3-bar-item w3-button"><b>Profile</b></a>
+        <a href="search.html" class="w3-bar-item w3-button"><b>search</b></a>
+        <a href="user_index.html" class="w3-button w3-block w3-white w3-left-align" id="myBtn">
+            Analyze
+        </a>
+        <a class="w3-bar-item w3-button"><b>Report</b></a>
+    </div>
+
+    <a href="#footer" class="w3-bar-item w3-button w3-padding">Contact</a>
+    <a href="javascript:void(0)" class="w3-bar-item w3-button w3-padding" onclick="document.getElementById('newsletter').style.display='block'">Newsletter</a>
+</nav>
+
+<div class="w3-main" style="margin-left:250px">
+
+
+    <header class="w3-container w3-xlarge">
+        <p class="w3-left"></p>
+        <p class="w3-right">
+        <button type="button" class="w3-button w3-black w3-margin-bottom" style="display:none">Login</button>
+		<a href="start.html"">
+        <button type="button" class="w3-button w3-black w3-margin-bottom" >logout</button>
+		</a>
+    </p>
+    </header>
+
+    <!--conditions---->
+    <div id="report_show">
+        <form>
+            <P class="w3-container w3-black w3-padding-32 ">Report List:
+			    <br>
+                <label>Email</label>
+				<input id="user_email" name="user_email">
+                <p id="demo"></p>
+                <button onclick="show_report()" type="button"  class="w3-btn w3-teal" >refresh</button>
+            </P>
+
+        </form>
+    </div>
+
+
+    <div id="table1" >
+        <table  class="w3-table w3-striped w3-bordered">
+
+            <thead id="head">
+
+            </thead>
+
+            <tbody id="list"> </tbody>
+
+
+        </table>
+    </div>
+
+
+
+
+
+
+
+
+<!--report---->
+    <form action="reportupload.php" method="post">
+        <div class="w3-container w3-black w3-padding-32">
+            <h1>report</h1>
+			 <p>Input:</p>
+			<p><input class="w3-input w3-border" type="text" placeholder="user_email" name="user_email" style="width:100%"></p>
+            <p>Error Type:</p>
+            <!-----input username----->
+            
+            <p><input class="w3-input w3-border" type="text" placeholder="error_type" name="error_type" style="width:100%"></p>
+            <p>Problem:</p>
+            <p><textarea class="w3-input w3-border" type="text" placeholder="problem" name="text" style="width:100%"></textarea></p>
+            <input type="submit" class="w3-button w3-red w3-margin-bottom" value="submit">
+        </div>
+    </form>
+
+
+    <footer class="w3-padding-64 w3-light-grey w3-small w3-center" id="footer">
+        <div class="w3-row-padding">
+            <div class="w3-col s4">
+                <button type="submit" class="w3-button w3-red w3-margin-bottom"><b>Contact me</b></button></a>
+                </form>
+            </div>
+
+            <div class="w3-col s4">
+                <h4>About</h4>
+                <p><a href="#">About us</a></p>
+                <p><a href="#">Support</a></p>
+                <p><a href="#">Help</a></p>
+            </div>
+
+            <div class="w3-col s4 w3-justify">
+                <h4>Store</h4>
+                <p><i class="fa fa-fw fa-map-marker"></i> #Gainesville</p>
+                <p><i class="fa fa-fw fa-phone"></i>(352)665-5547</p>
+                <p><i class="fa fa-fw fa-envelope"></i> xiangrui.li@ufl.edu</p>
+
+                <br>
+                <i class="fa fa-facebook-official w3-hover-opacity w3-large"></i>
+                <i class="fa fa-instagram w3-hover-opacity w3-large"></i>
+                <i class="fa fa-snapchat w3-hover-opacity w3-large"></i>
+                <i class="fa fa-twitter w3-hover-opacity w3-large"></i>
+            </div>
+        </div>
+    </footer>
+</div>
+
+
+<div id="newsletter" class="w3-modal">
+    <div class="w3-modal-content w3-animate-zoom" style="padding:32px">
+        <div class="w3-container w3-white w3-center">
+            <i onclick="document.getElementById('newsletter').style.display='none'" class="fa fa-remove w3-right w3-button w3-transparent w3-xxlarge"></i>
+            <h2 class="w3-wide">NEWSLETTER</h2>
+            <p>Join our mailing list to receive updates on new arrivals and special offers from #Mworld.</p>
+            <p><input class="w3-input w3-border" type="text" placeholder="Enter e-mail"></p>
+            <button type="button" class="w3-button w3-padding-large w3-red w3-margin-bottom" onclick="document.getElementById('newsletter').style.display='none'">Subscribe</button>
+        </div>
+    </div>
+</div>
+<script>
+    function myAccFunc() {
+        var x = document.getElementById("demoAcc");
+        if (x.className.indexOf("w3-show") == -1) {
+            x.className += " w3-show";
+        } else {
+            x.className = x.className.replace(" w3-show", "");
+        }
+    }
+
+    function show_report(){
+        var customer_email = document.getElementById("user_email").value;
+        $("#table1 tbody").html("");
+        $("#table1 thead").html("");
+        $.ajax({
+
+            type:"post",
+
+            url:"show_report.php",
+
+            data:{"customer_email":customer_email},
+
+            dataType:"json",
+
+            success:function (data) {
+
+                document.getElementById("table1").style.display = "block";
+                document.getElementById("report_show").style.display = "";
+
+                $("#head").append(
+
+                    "<tr><td>"+"ID"+"</td>"
+
+                    +"<td>"+"Error_type"+"</td>"
+
+                    +"<td>"+"status"+"</td>"
+
+                    +"<td>"+"reply"+"</td></tr>"
+                );
+
+                $(data).each(
+
+                    function (i, values) {
+					
+             
+                        $("#list").append(
+
+                            "<tr><td>"+values.ID+"</td>"
+
+                            +"<td>"+values.ERROR_TYPE+"</td>"
+
+                            +"<td>"+values.STATUS+"</td>"
+
+                            +"<td>"+values.REPLY+"</td></tr>"
+
+
+                        );
+
+
+
+                    }
+
+                );
+
+            },
+
+            error:function(data) {
+                document.getElementById("demo").innerHTML="error";
+
+            }
+
+        })
+    }
+
+
+
+</script>
+
+</body>
+
+</html>

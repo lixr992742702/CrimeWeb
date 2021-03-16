@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+<html>
+<title>admini_index</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<script   src="https://code.jquery.com/jquery-3.2.1.js"   integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="   crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+    .w3-sidebar a {font-family: "Roboto", sans-serif}
+    body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
+</style>
+<body class="w3-content" style="max-width:1700px">
+
+<nav class="w3-sidebar w3-bar-block w3-white w3-collapse w3-top" style="z-index:3;width:250px" id="mySidebar">
+    <div class="w3-container w3-display-container w3-padding-16">
+        <i onclick="w3_close()" class="fa fa-remove w3-hide-large w3-button w3-display-topright"></i>
+        <h3 class="w3-wide"><b><font color="rgb(4, 123, 213)">Resource profile</b></h3></font>
+    </div>
+    <div class="w3-padding-64 w3-large w3-text-grey" style="font-weight:bold">
+        <a class="w3-bar-item w3-button"><b>Profile</b></a>
+        <a class="w3-bar-item w3-button" href="search.html"><b>search</b></a>
+        <a  href="analysis.html" class="w3-button w3-block w3-white w3-left-align" id="myBtn">
+            Analyze
+        </a>
+   
+		
+		
+        <a class="w3-bar-item w3-button w3-block w3-white w3-left-align" onclick="openCity('user-management')"><b>User Management</b></a>
+        <a class="w3-bar-item w3-button w3-block w3-white w3-left-align" onclick="openCity('resource-management')"><b>Resource Management</b></a>
+        <a class="w3-bar-item w3-button w3-block w3-white w3-left-align" onclick="openCity('report')"><b>Report Management</b></a>
+    </div>
+</nav>
+<header class="w3-container w3-xlarge">
+    <p class="w3-right">
+        <button type="button" class="w3-button w3-black w3-margin-bottom">Login</button>
+        <button type="button" class="w3-button w3-black w3-margin-bottom">logout</button>
+    </p>
+</header>
+
+
+
+<!--***************************************************************************************************************************************-->
+<!--user management-->
+<div id="user-management" class="w3-display-container w3-container form" style="margin:0 auto;width:600px;height:300px;display: none">
+	<form class="w3-container w3-card-4">
+		
+  		<p>
+  		<h4>User email</h4>
+  		<input class="w3-input w3-border" type="text" id="user_email"></p>
+  		
+
+
+  		<p><button onclick="submit13()" type="button"  class="w3-btn w3-teal" >Search</button></p>
+	</form>
+</div>
+
+<!--resource management-->
+<div id="resource-management" class="w3-display-container w3-container form" style="margin:0 auto;width:600px;height:300px;">
+	<form class="w3-container w3-card-4">
+		
+  		<p>
+  		<h4>MSN</h4>
+  		<input id="msn1" class="w3-input w3-border" type="text" name="msn" required></p>
+		<p>
+  		<h4>year</h4>
+  		<select id="year1" class="w3-select w3-border" name="year" required>
+			<option value=1970>1970</option>
+			<option value=1971>1971</option>
+			<option value=1972>1972</option>
+			<option value=1973>1973</option>
+			<option value=1974>1974</option>
+			<option value=1975>1975</option>
+			<option value=1976>1976</option>
+			<option value=1977>1977</option>
+			<option value=1978>1978</option>
+			<option value=1979>1979</option>
+			<option value=1980>1980</option>
+			<option value=1981>1981</option>
+			<option value=1982>1982</option>
+			<option value=1983>1983</option>
+			<option value=1984>1984</option>
+			<option value=1985>1985</option>
+			<option value=1986>1986</option>
+			<option value=1987>1987</option>
+			<option value=1988>1988</option>
+			<option value=1989>1989</option>
+			<option value=1990>1990</option>
+			<option value=1991>1991</option>
+			<option value=1992>1992</option>
+			<option value=1993>1993</option>
+			<option value=1994>1994</option>
+			<option value=1995>1995</option>
+			<option value=1996>1996</option>
+			<option value=1997>1997</option>
+			<option value=1998>1998</option>
+			<option value=1999>1999</option>
+			<option value=2000>2000</option>
+			<option value=2001>2001</option>
+			<option value=2002>2002</option>
+			<option value=2003>2003</option>
+			<option value=2004>2004</option>
+			<option value=2005>2005</option>
+			<option value=2006>2006</option>
+			<option value=2007>2007</option>
+			<option value=2008>2008</option>
+			<option value=2009>2009</option>
+			<option value=2010>2010</option>
+			<option value=2011>2011</option>
+			<option value=2012>2012</option>
+			<option value=2013>2013</option>
+			<option value=2014>2014</option>
+			<option value=2015>2015</option>
+			<option value=2016>2016</option>
+			<option value=2017>2017</option>
+	 	</select>
+		<p>
+  		<h4>state</h4>
+  		<select id="state1" class="w3-select w3-border" name="state" required>
+		<option value="" disabled selected>State</option>
+		<option value="ND">ND</option>
+		<option value="NM">NM</option>
+		<option value="NC">NC</option>
+		<option value="UT">UT</option>
+		<option value="RI">RI</option>
+		<option value="WA">WA</option>
+		<option value="TN">TN</option>
+		<option value="FL ">FL</option>
+		<option value="CT">CT</option>
+		<option value="MD">MD</option>
+		<option value="MN">MN</option>
+		
+		<option value="MO">MO</option>
+		<option value="MT">MT</option>
+		<option value="OH">OH</option>
+		<option value="NV">NV</option>
+		<option value="AR">AR</option>
+		<option value="CO">CO</option>
+		<option value="AZ">AZ</option>
+		<option value="ID ">ID </option>
+		<option value="MS">MS</option>
+		<option value="PA">PA</option>
+		
+		<option value="MA">MA</option>
+		<option value="KY">KY</option>
+		<option value="MI">MI</option>
+		<option value="NH">NH</option>
+		<option value="VA">VA</option>
+		<option value="SC">SC</option>
+		<option value="AK">AK</option>
+		<option value="DE">DE </option>
+		<option value="DC">DC</option>
+		<option value="ME">ME</option>
+		<option value="NE">NE</option>
+		
+		<option value="SD">SD</option>
+		<option value="VT">VT</option>
+		<option value="AL">AL</option>
+		<option value="HI">HI</option>
+		<option value="IL">IL</option>
+		<option value="WY">WY</option>
+		<option value="OR">OR</option>
+		<option value="WV">WV</option>
+		<option value="TX">TX</option>
+		<option value="NY">NY</option>
+		<option value="KS">KS</option>
+		
+		<option value="IN">IN</option>
+		<option value="NJ">NJ</option>
+		<option value="WI">WI</option>
+		<option value="OK">OK</option>
+		<option value="CA">CA</option>
+		<option value="IA">IA</option>
+		<option value="GA">GA</option>
+		<option value="LA">LA</option>
+	  </select>
+  		
+
+
+  		<p><button onclick="submit14()" type="button"  class="w3-btn w3-teal" >Search</button></p>
+	</form>
+</div>
+
+<!-- this is result table1 -->
+<div id="table1" class="w3-display-container w3-container" style="margin:0 auto;width:400px;height:100px;display:none">
+	<table  class="w3-table w3-striped w3-bordered">
+	
+				<thead id="head">
+				
+                </thead>
+
+                <tr id="list"> </tr>
+				      
+
+</table>
+</div>
+
+<div id="user_button" class="w3-display-container w3-container form" style="margin:0 auto;width:500px;height:300px;display: none">
+	<form class="w3-container w3-card-4" action="changeuserinfor.php" method="post">
+		
+  		<p>
+  		<h4>email</h4>
+  		<input id="b_email" class="w3-input w3-border" type="text" name="email" required></p>
+		<p>
+  		<h4>password</h4>
+  		<input id="b_password" class="w3-input w3-border" type="text" name="password"></p>
+		<p>
+  		<h4>username</h4>
+  		<input id="b_username" class="w3-input w3-border" type="text" name="username"></p>
+		<p>
+  		<h4>gender</h4>
+  		<select id="b_gender" class="w3-select w3-border" name="gender">
+		<option value="M">male</option>
+		<option value="F">female</option>
+	     </select>
+		<p>
+  		<h4>birthday</h4>
+		<p>
+		<input class="w3-input w3-border" type="date" name="birthday"></p>
+  		<h4>priviledge</h4>
+  		<input id="b_priviledge" class="w3-input w3-border" type="number" name="priviledge"></p>
+
+  	     <button class="w3-button w3-block w3-green w3-section w3-padding" type="submit">Change</button>
+	</form>
+</div>
+
+<div id="resource_button" class="w3-display-container w3-container form" style="margin:0 auto;width:500px;height:300px;display: none">
+	<form class="w3-container w3-card-4" action="changeres.php" method="post">
+		
+  		<p>
+  		<h4>MSN</h4>
+  		<input class="w3-input w3-border" type="text" name="msn" required></p>
+		<p>
+  		<h4>year</h4>
+  		<select id="extremum_to" class="w3-select w3-border" name="year" required>
+		<option value=1970>1970</option>
+			<option value=1971>1971</option>
+			<option value=1972>1972</option>
+			<option value=1973>1973</option>
+			<option value=1974>1974</option>
+			<option value=1975>1975</option>
+			<option value=1976>1976</option>
+			<option value=1977>1977</option>
+			<option value=1978>1978</option>
+			<option value=1979>1979</option>
+			<option value=1980>1980</option>
+			<option value=1981>1981</option>
+			<option value=1982>1982</option>
+			<option value=1983>1983</option>
+			<option value=1984>1984</option>
+			<option value=1985>1985</option>
+			<option value=1986>1986</option>
+			<option value=1987>1987</option>
+			<option value=1988>1988</option>
+			<option value=1989>1989</option>
+			<option value=1990>1990</option>
+			<option value=1991>1991</option>
+			<option value=1992>1992</option>
+			<option value=1993>1993</option>
+			<option value=1994>1994</option>
+			<option value=1995>1995</option>
+			<option value=1996>1996</option>
+			<option value=1997>1997</option>
+			<option value=1998>1998</option>
+			<option value=1999>1999</option>
+			<option value=2000>2000</option>
+			<option value=2001>2001</option>
+			<option value=2002>2002</option>
+			<option value=2003>2003</option>
+			<option value=2004>2004</option>
+			<option value=2005>2005</option>
+			<option value=2006>2006</option>
+			<option value=2007>2007</option>
+			<option value=2008>2008</option>
+			<option value=2009>2009</option>
+			<option value=2010>2010</option>
+			<option value=2011>2011</option>
+			<option value=2012>2012</option>
+			<option value=2013>2013</option>
+			<option value=2014>2014</option>
+			<option value=2015>2015</option>
+			<option value=2016>2016</option>
+			<option value=2017>2017</option>
+	 	</select>
+		<p>
+  		<h4>state</h4>
+  		<select class="w3-select w3-border" name="state" required>
+		<option value="" disabled selected>State</option>
+		<option value="ND">ND</option>
+		<option value="NM">NM</option>
+		<option value="NC">NC</option>
+		<option value="UT">UT</option>
+		<option value="RI">RI</option>
+		<option value="WA">WA</option>
+		<option value="TN">TN</option>
+		<option value="FL ">FL</option>
+		<option value="CT">CT</option>
+		<option value="MD">MD</option>
+		<option value="MN">MN</option>
+		
+		<option value="MO">MO</option>
+		<option value="MT">MT</option>
+		<option value="OH">OH</option>
+		<option value="NV">NV</option>
+		<option value="AR">AR</option>
+		<option value="CO">CO</option>
+		<option value="AZ">AZ</option>
+		<option value="ID ">ID </option>
+		<option value="MS">MS</option>
+		<option value="PA">PA</option>
+		
+		<option value="MA">MA</option>
+		<option value="KY">KY</option>
+		<option value="MI">MI</option>
+		<option value="NH">NH</option>
+		<option value="VA">VA</option>
+		<option value="SC">SC</option>
+		<option value="AK">AK</option>
+		<option value="DE">DE </option>
+		<option value="DC">DC</option>
+		<option value="ME">ME</option>
+		<option value="NE">NE</option>
+		
+		<option value="SD">SD</option>
+		<option value="VT">VT</option>
+		<option value="AL">AL</option>
+		<option value="HI">HI</option>
+		<option value="IL">IL</option>
+		<option value="WY">WY</option>
+		<option value="OR">OR</option>
+		<option value="WV">WV</option>
+		<option value="TX">TX</option>
+		<option value="NY">NY</option>
+		<option value="KS">KS</option>
+		
+		<option value="IN">IN</option>
+		<option value="NJ">NJ</option>
+		<option value="WI">WI</option>
+		<option value="OK">OK</option>
+		<option value="CA">CA</option>
+		<option value="IA">IA</option>
+		<option value="GA">GA</option>
+		<option value="LA">LA</option>
+	  </select>
+	  <p>
+  		<h4>Amount</h4>
+  		<input class="w3-input w3-border" type="text" name="amount" required></p>
+
+  	    <button class="w3-button w3-block w3-green w3-section w3-padding" type="submit">Change</button>
+	</form>
+</div>
+
+
+<div id="report" class="w3-display-container w3-container form" style="margin:0 auto;width:500px;height:300px;display: none">
+	<form class="w3-container w3-card-4">
+		
+  		<p>
+  		<h4>email</h4>
+  		<input id="report_email" class="w3-input w3-border" type="text" name="email" required></p>
+		<p>
+  		<h4>id</h4>
+  		<input id="report_id" class="w3-input w3-border" type="text" name="id"></p>
+
+  	   <p><button onclick="submit15()" type="button"  class="w3-btn w3-teal" >Search</button></p>
+	</form>
+</div>
+
+<!--report management-->
+<!--
+显示所有report（user-email,username,error-type,text,status），在每个report后面显示“reply”，点击reply则弹出可以输入回复的窗口
+
+
+-->
+
+
+<!--report-->
+<div id="report1" class="w3-display-container w3-container form" style="margin:0 auto;width:600px;height:300px;display: none">
+	<form class="w3-container w3-card-4" action="replyreport.php" method = "post">
+		
+  		<p>
+  		<h4>email</h4>
+  		<input id="report_email" class="w3-input w3-border" type="text" name="email" required></p>
+		<p>
+  		<h4>id</h4>
+  		<input id="report_id" class="w3-input w3-border" type="text" name="id"></p>
+
+  		<p>
+  		<h4>Description</h4>
+  		<input class="w3-input w3-border" type="text" name="description"></p>
+
+
+  		<button class="w3-button w3-block w3-green w3-section w3-padding" type="submit">Change</button>
+	</form>
+</div>
+	  
+
+<script>
+    function myAccFunc() {
+        var x = document.getElementById("demoAcc");
+        if (x.className.indexOf("w3-show") == -1) {
+            x.className += " w3-show";
+        } else {
+            x.className = x.className.replace(" w3-show", "");
+        }
+    }
+	
+	function myAccFunc1() {
+        var x = document.getElementById("demoAcc1");
+        if (x.className.indexOf("w3-show") == -1) {
+            x.className += " w3-show";
+        } else {
+            x.className = x.className.replace(" w3-show", "");
+        }
+    }
+	
+	function myAccFunc2() {
+        var x = document.getElementById("demoAcc2");
+        if (x.className.indexOf("w3-show") == -1) {
+            x.className += " w3-show";
+        } else {
+            x.className = x.className.replace(" w3-show", "");
+        }
+    }
+	
+	function myAccFunc3() {
+        var x = document.getElementById("demoAcc3");
+        if (x.className.indexOf("w3-show") == -1) {
+            x.className += " w3-show";
+        } else {
+            x.className = x.className.replace(" w3-show", "");
+        }
+    }
+	
+	function myAccFunc4() {
+        var x = document.getElementById("demoAcc4");
+        if (x.className.indexOf("w3-show") == -1) {
+            x.className += " w3-show";
+        } else {
+            x.className = x.className.replace(" w3-show", "");
+        }
+    }
+	
+	function openCity(cityName) {
+		var i;
+		var x = document.getElementsByClassName("form");
+		for (i = 0; i < x.length; i++) {
+			x[i].style.display = "none";  
+		}
+		document.getElementById("table1").style.display = "none";
+		document.getElementById(cityName).style.display = "block";  
+}
+
+
+	function change(first,second)
+	{
+	   var x = document.getElementById(first);
+	   var y = document.getElementById(second);
+	   for (var j = 0; j<y.length; j++){
+	   		y[j].disabled = true;
+	   }
+	   for (var i = x.selectedIndex;i < y.length;i++){
+	   	  y[i].disabled = false;
+	   }
+	   y.selectedIndex = x.selectedIndex;
+
+	}
+	
+	function editCell(obj){
+    if(obj.innerText==""){
+      obj.innerHTML="<input value='' onblur='update(this.value, this.id)'>";               //插入输入框，失去焦点时更新
+		}
+	else{
+      obj.innerHTML="<input value="+obj.innerText+" onblur='update(this.value)'>";//插入文本框，且指定内容
+		}
+	}	
+	
+	function update(txt,id){
+    document.getElementById(id).innerText=txt;                                //文本框失去焦点时，需要更新表格的内容
+	}
+	
+	function submit13(){
+	var email = document.getElementById("user_email").value;
+	$("#table1 tr").html("");
+	$("#table1 thead").html("");
+	$.ajax({
+
+            type:"post",
+
+            url:"user_management.php",
+			
+			data:{"email":email},
+
+            dataType:"json",
+
+            success:function (data) {
+			
+				document.getElementById("table1").style.display = "block";
+				document.getElementById("user-management").style.display = "none";
+				document.getElementById("user_button").style.display = "block";
+				
+				$("#head").append(
+
+                            "<tr><td>"+"email"+"</td>"					
+                            +"<td>"+"password"+"</td>"
+							+"<td>"+"username"+"</td>"
+							+"<td>"+"gender"+"</td>"
+							+"<td>"+"birthday"+"</td>"
+							+"<td>"+"priviledge"+"</td></tr>"
+                        );
+				
+                $(data).each(
+
+                    function (i, values) {
+
+                        $("#list").append(
+
+                            "<td>"+values.EMAIL+"</td>"
+                            +"<td>"+values.PASSWORD+"</td>"
+							 +"<td>"+values.USERNAME+"</td>"
+							  +"<td>"+values.GENDER+"</td>"
+							  +"<td>"+values.BIRTHDAY+"</td>"
+							   +"<td>"+values.PRIVILEDGE+"</td>"
+
+
+                        );
+
+ 
+
+                    }
+
+                );
+
+            },
+
+        })
+	}
+	
+	
+	function submit14(){
+	var msn1 = document.getElementById("msn1").value;
+	var year1 = document.getElementById("year1").value;
+	var state1 = document.getElementById("state1").value;
+	$("#table1 tr").html("");
+	$("#table1 thead").html("");
+	$.ajax({
+
+            type:"post",
+
+            url:"resource_management.php",
+			
+			data:{"msn1":msn1,"year1":year1,"state1":state1},
+
+            dataType:"json",
+
+            success:function (data) {
+				document.getElementById("table1").style.display = "block";
+				document.getElementById("resource-management").style.display = "none";
+				document.getElementById("resource_button").style.display = "block";
+				
+				$("#head").append(
+
+                            "<tr><td>"+"msn"+"</td>"					
+                            +"<td>"+"year"+"</td>"
+							+"<td>"+"state"+"</td>"
+							+"<td>"+"amount"+"</td></tr>"
+                        );
+				
+                $(data).each(
+
+                    function (i, values) {
+
+                        $("#list").append(
+
+                            "<td>"+values.MSN+"</td>"
+                            +"<td>"+values.YEAR+"</td>"
+							 +"<td>"+values.STATE+"</td>"
+							  +"<td>"+values.AMOUNT+"</td>"
+					
+
+
+                        );
+
+ 
+
+                    }
+
+                );
+
+            },
+
+        })
+	}
+	
+	
+	function submit15(){
+	var id = document.getElementById("report_id").value;
+	var email = document.getElementById("report_email").value;
+	$("#table1 tr").html("");
+	$("#table1 thead").html("");
+	$.ajax({
+
+            type:"post",
+
+            url:"report_management.php",
+			
+			data:{"email":email,"id":id},
+
+            dataType:"json",
+
+             success:function (data) {
+				document.getElementById("table1").style.display = "block";
+				document.getElementById("report").style.display = "none";
+				document.getElementById("report1").style.display = "block";
+				
+				$("#head").append(
+
+                            "<tr><td>"+"customer"+"</td>"					
+                            +"<td>"+"id"+"</td>"
+							+"<td>"+"type"+"</td>"
+							+"<td>"+"text"+"</td></tr>"
+                        );
+				
+                $(data).each(
+
+                    function (i, values) {
+
+                        $("#list").append(
+
+                            "<td>"+values.CUSTOMER_EMAIL+"</td>"
+                            +"<td>"+values.ID+"</td>"
+							 +"<td>"+values.ERROR_TYPE+"</td>"
+							  +"<td>"+values.TEXT+"</td>"
+					
+
+
+                        );
+
+ 
+
+                    }
+
+                );
+
+            },
+
+        })
+	}
+	
+	 
+</script>
+
+</body>
+</html>

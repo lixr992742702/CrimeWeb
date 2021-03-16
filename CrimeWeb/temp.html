@@ -1,0 +1,283 @@
+<html>
+<head>
+   <meta charset="UTF-8" />
+   <title>Highcharts 教程 | 菜鸟教程(runoob.com)</title>
+   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<script   src="https://code.jquery.com/jquery-3.2.1.js"   integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="   crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+   <script src="https://code.highcharts.com/highcharts.js"></script>
+</head>
+<body>
+ <!-- this is difference form -->
+<div id="difference" class="w3-display-container w3-container form" style="margin:0 auto;width:600px;height:300px;">
+	<form class="w3-container w3-card-4" >
+	 
+	 <select id="difference_type" class="w3-select w3-border" name="option">
+		<option value="" disabled selected>Type</option>
+		<option value="expenditure">EXPENDITURE</option>
+		<option value="price">PRICE</option>
+		<option value="production">PRODUCTION</option>
+		<option value="use">USE</option>
+	  </select>
+	  
+	  <select id="difference_state" class="w3-select w3-border" name="option">
+		<option value="" disabled selected>State</option>
+		<option value="ND">ND</option>
+		<option value="NM">NM</option>
+		<option value="NC">NC</option>
+		<option value="UT">UT</option>
+		<option value="RI">RI</option>
+		<option value="WA">WA</option>
+		<option value="TN">TN</option>
+		<option value="FL">FL</option>
+		<option value="CT">CT</option>
+		<option value="MD">MD</option>
+		<option value="MN">MN</option>
+		
+		<option value="MO">MO</option>
+		<option value="MT">MT</option>
+		<option value="OH">OH</option>
+		<option value="NV">NV</option>
+		<option value="AR">AR</option>
+		<option value="CO">CO</option>
+		<option value="AZ">AZ</option>
+		<option value="ID">ID </option>
+		<option value="MS">MS</option>
+		<option value="PA">PA</option>
+		
+		<option value="MA">MA</option>
+		<option value="KY">KY</option>
+		<option value="MI">MI</option>
+		<option value="NH">NH</option>
+		<option value="VA">VA</option>
+		<option value="SC">SC</option>
+		<option value="AK">AK</option>
+		<option value="DE">DE </option>
+		<option value="DC">DC</option>
+		<option value="ME">ME</option>
+		<option value="NE">NE</option>
+		
+		<option value="SD">SD</option>
+		<option value="VT">VT</option>
+		<option value="AL">AL</option>
+		<option value="HI">HI</option>
+		<option value="IL">IL</option>
+		<option value="WY">WY</option>
+		<option value="OR">OR</option>
+		<option value="WV">WV</option>
+		<option value="TX">TX</option>
+		<option value="NY">NY</option>
+		<option value="KS">KS</option>
+		
+		<option value="IN">IN</option>
+		<option value="NJ">NJ</option>
+		<option value="WI">WI</option>
+		<option value="OK">OK</option>
+		<option value="CA">CA</option>
+		<option value="IA">IA</option>
+		<option value="GA">GA</option>
+		<option value="LA">LA</option>
+	  </select>	
+	  
+	  <select id="difference_from" class="w3-select w3-border" name="year1" onChange="change('difference_from','difference_to')">
+			<option value="" disabled selected>from</option>
+			<option value=1970>1970</option>
+			<option value=1971>1971</option>
+			<option value=1972>1972</option>
+			<option value=1973>1973</option>
+			<option value=1974>1974</option>
+			<option value=1975>1975</option>
+			<option value=1976>1976</option>
+			<option value=1977>1977</option>
+			<option value=1978>1978</option>
+			<option value=1979>1979</option>
+			<option value=1980>1980</option>
+			<option value=1981>1981</option>
+			<option value=1982>1982</option>
+			<option value=1983>1983</option>
+			<option value=1984>1984</option>
+			<option value=1985>1985</option>
+			<option value=1986>1986</option>
+			<option value=1987>1987</option>
+			<option value=1988>1988</option>
+			<option value=1989>1989</option>
+			<option value=1990>1990</option>
+			<option value=1991>1991</option>
+			<option value=1992>1992</option>
+			<option value=1993>1993</option>
+			<option value=1994>1994</option>
+			<option value=1995>1995</option>
+			<option value=1996>1996</option>
+			<option value=1997>1997</option>
+			<option value=1998>1998</option>
+			<option value=1999>1999</option>
+			<option value=2000>2000</option>
+			<option value=2001>2001</option>
+			<option value=2002>2002</option>
+			<option value=2003>2003</option>
+			<option value=2004>2004</option>
+			<option value=2005>2005</option>
+			<option value=2006>2006</option>
+			<option value=2007>2007</option>
+			<option value=2008>2008</option>
+			<option value=2009>2009</option>
+			<option value=2010>2010</option>
+			<option value=2011>2011</option>
+			<option value=2012>2012</option>
+			<option value=2013>2013</option>
+			<option value=2014>2014</option>
+			<option value=2015>2015</option>
+			<option value=2016>2016</option>
+			<option value=2017>2017</option>
+	 	</select>
+
+
+	 	<select id="difference_to" class="w3-select w3-border" name="year2">
+			<option value="" disabled selected>to</option>
+			<option value=1970 disabled="true">1970</option>
+			<option value=1971 disabled="true">1971</option>
+			<option value=1972 disabled="true">1972</option>
+			<option value=1973 disabled="true">1973</option>
+			<option value=1974 disabled="true">1974</option>
+			<option value=1975 disabled="true">1975</option>
+			<option value=1976 disabled="true">1976</option>
+			<option value=1977 disabled="true">1977</option>
+			<option value=1978 disabled="true">1978</option>
+			<option value=1979 disabled="true">1979</option>
+			<option value=1980 disabled="true">1980</option>
+			<option value=1981 disabled="true">1981</option>
+			<option value=1982 disabled="true">1982</option>
+			<option value=1983 disabled="true">1983</option>
+			<option value=1984 disabled="true">1984</option>
+			<option value=1985 disabled="true">1985</option>
+			<option value=1986 disabled="true">1986</option>
+			<option value=1987 disabled="true">1987</option>
+			<option value=1988 disabled="true">1988</option>
+			<option value=1989 disabled="true">1989</option>
+			<option value=1990 disabled="true">1990</option>
+			<option value=1991 disabled="true">1991</option>
+			<option value=1992 disabled="true">1992</option>
+			<option value=1993 disabled="true">1993</option>
+			<option value=1994 disabled="true">1994</option>
+			<option value=1995 disabled="true" >1995</option>
+			<option value=1996 disabled="true">1996</option>
+			<option value=1997 disabled="true">1997</option>
+			<option value=1998 disabled="true">1998</option>
+			<option value=1999 disabled="true">1999</option>
+			<option value=2000>2000</option>
+			<option value=2001 disabled="true">2001</option>
+			<option value=2002 disabled="true">2002</option>
+			<option value=2003 disabled="true">2003</option>
+			<option value=2004 disabled="true">2004</option>
+			<option value=2005 disabled="true">2005</option>
+			<option value=2006 disabled="true">2006</option>
+			<option value=2007 disabled="true">2007</option>
+			<option value=2008 disabled="true">2008</option>
+			<option value=2009 disabled="true">2009</option>
+			<option value=2010 disabled="true">2010</option>
+			<option value=2011 disabled="true">2011</option>
+			<option value=2012 disabled="true">2012</option>
+			<option value=2013 disabled="true"d>2013</option>
+			<option value=2014 disabled="true">2014</option>
+			<option value=2015 disabled="true">2015</option>
+			<option value=2016 disabled="true">2016</option>
+			<option value=2017 disabled="true">2017</option>
+	 	</select>
+	  
+	  <p><button onclick="submit14()" type="button"  class="w3-btn w3-teal" >Analyze</button></p>
+	</form>
+</div>	
+
+<div id="container" style="width: 550px; height: 400px; margin: 0 auto"></div>
+<script language="JavaScript">
+function action(xname, data) {
+   var title = {
+      text: 'Energy Cost'   
+   };
+   var subtitle = {
+      text: ''
+   };
+   var xAxis = {
+
+   };
+   var yAxis = {
+      title: {
+         text: 'Amount'
+      },
+      plotLines: [{
+         value: 0,
+         width: 1,
+         color: '#808080'
+      }]
+   };   
+
+   var tooltip = {
+      valueSuffix: 'ton'
+   }
+
+   var legend = {
+      layout: 'vertical',
+      align: 'right',
+      verticalAlign: 'middle',
+      borderWidth: 0
+   };
+
+   
+   var series =  [
+     
+   ];
+   var result={};
+   result["name"]="difference";
+   result["data"]=data;
+   series[0] = result;
+   xAxis["categories"]=xname;
+   var json = {};
+
+   json.title = title;
+   json.subtitle = subtitle;
+   json.xAxis = xAxis;
+   json.yAxis = yAxis;
+   json.tooltip = tooltip;
+   json.legend = legend;
+   json.series = series;
+
+   $('#container').highcharts(json);
+}
+
+	function submit14(){
+	var state = document.getElementById("difference_state").value;
+	var type = document.getElementById("difference_type").value;
+	var yearfrom = document.getElementById("difference_from").value;
+	var yearto = document.getElementById("difference_to").value;
+//	$("#table1 tbody").html("");
+//	$("#table1 thead").html("");
+	$.ajax({
+
+            type:"post",
+
+            url:"difference.php",
+			
+			data:{"state":state,"type":type,"yearfrom":yearfrom,"yearto":yearto},
+
+            dataType:"json",
+
+            success:function (data) {
+				//document.getElementById("table1").style.display = "block";
+				document.getElementById("difference").style.display = "none";
+				//document.getElementById("image1").style.display = "none";
+				alert(data["xname"]);
+				alert(data["data"]);
+				action(data["xname"], data["data"]);
+
+            },
+
+        })
+	}
+	
+
+
+</script>
+</body>
+</html>

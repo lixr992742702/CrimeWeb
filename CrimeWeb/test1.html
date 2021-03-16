@@ -1,0 +1,120 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <style type="text/css">
+        table
+        {
+            padding: 0;
+            margin: 0;
+            border-collapse: collapse;
+        }
+        
+        td
+        {
+            border: 1px solid #009999;
+            padding: 6px 6px 6px 12px;
+            color: #4f6b72;
+            text-align: center;
+        }
+        
+        td button
+        {
+            font-size: 12px;
+        }
+    </style>
+    <script type="text/javascript">
+        /*
+        createTable(toid, jsondata, check, edit, del)：用于动态创建table，第0行为表头，数据里必须包含表头和数据的id
+        @toid：创建table到id为toid的节点下
+        @jsondata：用于创建table的json格式的数据（须在jsondata里包含表头标题）
+        @check：是否创建查看按钮
+        @edit：是否创建编辑按钮
+        @del：是否创建删除按钮
+        */
+        function createTable(toid, jsondata, check, edit, del) {
+            var table = document.createElement("table");
+            var tr, td;
+            for (i in jsondata) {
+                tr = document.createElement("tr");               //创建tr
+                //________________创建表头________________________________________
+                if (i == 0) {
+                    for (j in jsondata[i]) {                                      //根据数据在tr内创建td
+                        td = document.createElement("td");
+                        td.appendChild(document.createTextNode(jsondata[i][j]));
+                        if (j == "id") {                                                   //创建隐藏的td来存放id
+                            td.style.display = "none";
+                        }
+                        td.style.background = "#C1DAD7";              //设置表头颜色
+                        tr.appendChild(td);
+                    }
+                    if (check == true) {                                                 //创建查看按钮
+                        td = document.createElement("td");
+                        td.appendChild(document.createTextNode("查看"));
+                        td.style.background = "#C1DAD7";              //设置表头颜色
+                        tr.appendChild(td);
+                    }
+                    if (edit == true) {                                              //创建编辑按钮
+                        td = document.createElement("td");
+                        td.appendChild(document.createTextNode("编辑"));
+                        td.style.background = "#C1DAD7";          //设置表头颜色
+                        tr.appendChild(td);
+                    }
+                    if (del == true) {                                                 //创建删除按钮
+                        td = document.createElement("td");
+                        td.appendChild(document.createTextNode("删除"));
+                        td.style.background = "#C1DAD7";         //设置表头颜色
+                        tr.appendChild(td);
+                    }
+                }
+                //________________创建数据行________________________________________
+                else {
+                    for (j in jsondata[i]) {                                      //根据数据在tr内创建td
+                        td = document.createElement("td");
+                        td.appendChild(document.createTextNode(jsondata[i][j]));
+                        if (j == "id") {                                              //创建隐藏的td来存放id
+                            td.style.display = "none";
+                        }
+                        tr.appendChild(td);
+                    }
+                    if (check == true) {                                          //创建查看按钮
+                        td = document.createElement("td");
+                        var btnCheck = document.createElement("button");
+                        btnCheck.appendChild(document.createTextNode("查看"));
+                        td.appendChild(btnCheck);
+                        tr.appendChild(td);
+                    }
+                    if (edit == true) {                            //创建编辑按钮
+                        td = document.createElement("td");
+                        var btnEdit = document.createElement("button");
+                        btnEdit.appendChild(document.createTextNode("编辑"));
+                        td.appendChild(btnEdit);
+                        tr.appendChild(td);
+                    }
+                    if (del == true) {                             //创建删除按钮
+                        td = document.createElement("td");
+                        var btnDel = document.createElement("button");
+                        btnDel.appendChild(document.createTextNode("删除"));
+                        td.appendChild(btnDel);
+                        tr.appendChild(td);
+                    }
+                }
+                table.appendChild(tr);
+            }
+            document.getElementById(toid).appendChild(table);
+        }
+    </script>
+    <script type="text/javascript">
+        var testData = eval("([{\"No\":\"序号\",\"name\":\"姓名\",\"gender\":\"性别\",\"age\":\"年龄\"},{\"No\":\"1\",\"name\":\"小五毛\",\"gender\":\"男\",\"age\":\"22\"},{\"No\":\"2\",\"name\":\"中五毛\",\"gender\":\"女\",\"age\":\"18\"},{\"No\":\"3\",\"name\":\"大五毛\",\"gender\":\"男\",\"age\":\"20\"}])");
+        window.onload = function () {
+            createTable("data", testData, true, true, true);
+        }
+    </script>
+</head>
+<body>
+    <div id="data">
+    </div>
+</body>
+</html>
+
+动态生成table的demo
